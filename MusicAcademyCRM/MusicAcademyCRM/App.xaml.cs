@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +8,12 @@ namespace MusicAcademyCRM
     public partial class App : Application
     {
         public static string DatabaseLocation = string.Empty;
+
+        public static MobileServiceClient client = 
+            new MobileServiceClient("https://musicacademyappxam.azurewebsites.net");
+
+        
+
         public App()
         {
             InitializeComponent();
@@ -34,5 +41,7 @@ namespace MusicAcademyCRM
         protected override void OnResume()
         {
         }
+
+       
     }
 }

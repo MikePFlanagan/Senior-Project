@@ -16,6 +16,10 @@ namespace MusicAcademyCRM
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+
+            iconImage.Source = ImageSource.FromResource("MusicAcademyCRM.Assets.Images.pma.jpeg", assembly);
         }
 
        
@@ -34,5 +38,9 @@ namespace MusicAcademyCRM
            }
         }
 
+        private void RegisterUserButton_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
     }
 }
