@@ -24,23 +24,23 @@ namespace MusicAcademyCRM
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                conn.CreateTable<Post>();
-                var posts = conn.Table<Post>().ToList();
-                postListView.ItemsSource = posts;
+                conn.CreateTable<Student>();
+                var students = conn.Table<Student>().ToList();
+                conn.Close();
+                studentListView.ItemsSource = students;
             }
 
             
         }
 
-        
 
-        void PostListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void StudentListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedPost = postListView.SelectedItem as Post;
+            var selectedStudent = studentListView.SelectedItem as Student;
 
-            if (selectedPost != null)
+            if (selectedStudent != null)
             {
-                Navigation.PushAsync(new PostDetailPage(selectedPost));
+                Navigation.PushAsync(new StudentDetailPage(selectedStudent));
             }
         }
     }

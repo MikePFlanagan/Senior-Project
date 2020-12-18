@@ -8,10 +8,16 @@
              BackgroundColor="Maroon">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Teachers Page!"
-                   TextColor="White"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="teacherListView"
+                      BackgroundColor="Maroon"
+                      ItemSelected="TeacherListView_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"/>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

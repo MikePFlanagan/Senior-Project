@@ -12,16 +12,16 @@ using Xamarin.Forms.Xaml;
 namespace MusicAcademyCRM
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddStudents : ContentPage
+    public partial class AddTeachers : ContentPage
     {
-        public AddStudents()
+        public AddTeachers()
         {
             InitializeComponent();
         }
 
         private void ToolBarItem_Clicked(object sender, EventArgs e)
         {
-            Student student = new Student()
+            Teacher teacher = new Teacher()
             {
                 Name = nameEntry.Text,
                 Phone = phoneEntry.Text, 
@@ -35,13 +35,17 @@ namespace MusicAcademyCRM
                 Notes = notesEntry.Text
 
 
+
+
+
+
             };
 
             using (var conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                conn.CreateTable<Student>();
+                conn.CreateTable<Teacher>();
                 
-                int rows = conn.Insert(student);
+                int rows = conn.Insert(teacher);
                
 
                 if (rows > 0)

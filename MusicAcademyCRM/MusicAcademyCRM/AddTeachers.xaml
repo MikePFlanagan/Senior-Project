@@ -4,24 +4,28 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MusicAcademyCRM.PostDetailPage"
-            BackgroundColor="Maroon">
-    <ContentPage.Content>
-        <ScrollView>
-        <StackLayout>
-            
+             BackgroundColor="Maroon"
+             x:Class="MusicAcademyCRM.AddTeachers">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save"
+                     Clicked="ToolBarItem_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+        <ContentPage.Content>
+            <ScrollView>
+            <StackLayout
+            Margin="20">
             <Entry x:Name="nameEntry"
                    Placeholder="Name"
                    Keyboard="Default"
                    BackgroundColor="{StaticResource blackColor}"
                    PlaceholderColor="{StaticResource whiteColor}"
                    TextColor="{StaticResource whiteColor}"/>
-                   
-
             <Entry x:Name="phoneEntry"
                    Placeholder="Phone"
                    Keyboard="Telephone"
-                   
                    BackgroundColor="{StaticResource blackColor}"
                    PlaceholderColor="{StaticResource whiteColor}"
                    TextColor="{StaticResource whiteColor}"/>
@@ -31,7 +35,6 @@
                    BackgroundColor="{StaticResource blackColor}"
                    PlaceholderColor="{StaticResource whiteColor}"
                    TextColor="{StaticResource whiteColor}"/>
-
             <Entry x:Name="addressEntry"
                    Placeholder="Address"
                    Keyboard="Default"
@@ -75,21 +78,8 @@
                    PlaceholderColor="{StaticResource whiteColor}"
                    TextColor="{StaticResource whiteColor}"/>
 
-
-            <Button Margin="20,0"
-                Text="Update"
-                    x:Name="UpdateButton"
-                    Clicked="UpdateButton_Clicked"
-                    BackgroundColor="Black"
-                    TextColor="White"/>
-            <Button Margin="20,0"
-                Text="Delete"
-                    x:Name="DeleteButton"
-                    Clicked="DeleteButton_Clicked"
-                    BackgroundColor="Black"
-                    TextColor="White"/>
-
         </StackLayout>
-        </ScrollView>
+            </ScrollView>
     </ContentPage.Content>
+    
 </ContentPage>
