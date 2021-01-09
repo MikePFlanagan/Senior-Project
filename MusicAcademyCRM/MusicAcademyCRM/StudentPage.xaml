@@ -8,9 +8,9 @@
              BackgroundColor="Maroon">
 
 
-    <ListView x:Name="postListView"
+    <ListView x:Name="studentListView"
               BackgroundColor="Maroon"
-              ItemSelected="PostListView_OnItemSelected">
+              ItemSelected="StudentListView_OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Name}"/>

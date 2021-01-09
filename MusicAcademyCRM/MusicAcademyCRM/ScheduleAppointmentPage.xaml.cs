@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MusicAcademyCRM
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Teachers : ContentPage
+    public partial class ScheduleAppointmentPage : ContentPage
     {
-        public Teachers()
+        public ScheduleAppointmentPage()
         {
             InitializeComponent();
         }

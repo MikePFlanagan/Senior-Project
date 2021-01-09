@@ -9,10 +9,13 @@
              BackgroundColor="Maroon">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text ="Add"
+        <ToolbarItem Text ="Add Students"
                      
-                     Clicked="ToolbarItem_Clicked"/>
+                     Clicked="AddStudentsToolbarItem_Clicked"/>
 
+        <ToolbarItem Text ="Add Teachers"
+                     
+                     Clicked="AddTeachersToolbarItem_Clicked"/>
         
        
                     

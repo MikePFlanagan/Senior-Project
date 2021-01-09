@@ -17,9 +17,16 @@ namespace MusicAcademyCRM
             InitializeComponent();
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private void AddStudentsToolbarItem_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddStudents());
+
+        }
+        private void AddTeachersToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddTeachers());
         }
     }
+
+    
 }

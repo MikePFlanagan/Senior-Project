@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicAcademyCRM.TeacherDetailPage"
+            BackgroundColor="Maroon">
+    <ContentPage.Content>
+        <ScrollView>
+       
+                <StackLayout HorizontalOptions="FillAndExpand">
+
+
+                    <Entry x:Name="nameEntry"
+                   Placeholder="Name"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+
+
+                    <Entry x:Name="phoneEntry"
+                   Placeholder="Phone"
+                   Margin="1,-6"
+                   Keyboard="Telephone"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="emailEntry"
+                   Placeholder="Email"
+                   Margin="1,-6"
+                   Keyboard="Email"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+
+                    <Entry x:Name="addressEntry"
+                   Placeholder="Address"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="cityEntry"
+                   Placeholder="City"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="stateEntry"
+                   Placeholder="State"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="zipcodeEntry"
+                   Placeholder="Zipcode"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="companyEntry"
+                   Placeholder="Company"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry x:Name="leadsourceEntry"
+                   Placeholder="Lead Source"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+                    <Entry  x:Name="notesEntry"
+                    Placeholder="Notes"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource whiteColor}"
+                   PlaceholderColor="{StaticResource blackColor}"
+                   TextColor="{StaticResource blackColor}"/>
+
+
+                    <Button Margin="20,1"
+                Text="Update"
+                    x:Name="UpdateButton"
+                    Clicked="UpdateButton_Clicked"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+                    <Button Margin="20,1"
+                Text="Delete"
+                    x:Name="DeleteButton"
+                    Clicked="DeleteButton_Clicked"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+
+                </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

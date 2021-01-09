@@ -8,6 +8,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.WindowsAzure.MobileServices;
 using Environment = System.Environment;
 
 namespace MusicAcademyCRM.Droid
@@ -24,6 +25,8 @@ namespace MusicAcademyCRM.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CurrentPlatform.Init();
+
             string dbName = "academy_db.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = System.IO.Path.Combine(folderPath, dbName);

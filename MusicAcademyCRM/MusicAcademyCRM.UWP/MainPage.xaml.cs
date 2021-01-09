@@ -23,5 +23,7 @@ namespace MusicAcademyCRM.UWP
 
             LoadApplication(new MusicAcademyCRM.App());
         }
+
+
     }
 }

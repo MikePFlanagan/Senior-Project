@@ -42,7 +42,9 @@ namespace MusicAcademyCRM.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
+            string dbName = "academy_db.sqlite";
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullPath = System.IO.Path.Combine(folderPath, dbName);
 
             Frame rootFrame = Window.Current.Content as Frame;
 
