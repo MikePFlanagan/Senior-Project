@@ -29,7 +29,7 @@ namespace MusicAcademyCRM
                     Password = passwordEntry.Text
                 };
 
-               await App.client.GetTable<Users>().InsertAsync(user);
+               await App.MobileService.GetTable<Users>().InsertAsync(user);
             }
             else
             {

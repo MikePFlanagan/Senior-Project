@@ -15,6 +15,7 @@ namespace MusicAcademyCRM
     public partial class TeacherDetailPage : ContentPage
     {
         Teacher selectedTeacher;
+
         public TeacherDetailPage(Teacher selectedTeacher)
         {
             InitializeComponent();
@@ -31,48 +32,78 @@ namespace MusicAcademyCRM
             notesEntry.Text = selectedTeacher.Notes;
         }
 
-        
 
-        private void UpdateButton_Clicked(object sender, EventArgs e)
+
+        private async void UpdateButton_Clicked(object sender, EventArgs e)
         {
-            selectedTeacher.Name = nameEntry.Text;
-            selectedTeacher.Phone = phoneEntry.Text;
-            selectedTeacher.Email = emailEntry.Text;
-            selectedTeacher.Address = addressEntry.Text;
-            selectedTeacher.City = cityEntry.Text;
-            selectedTeacher.Zipcode = zipcodeEntry.Text;
-            selectedTeacher.Company = companyEntry.Text;
-            selectedTeacher.Leadsource = leadsourceEntry.Text;
-            selectedTeacher.Notes = notesEntry.Text;
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            try
             {
+                selectedTeacher.Name = nameEntry.Text;
+                selectedTeacher.Phone = phoneEntry.Text;
+                selectedTeacher.Email = emailEntry.Text;
+                selectedTeacher.Address = addressEntry.Text;
+                selectedTeacher.City = cityEntry.Text;
+                selectedTeacher.Zipcode = zipcodeEntry.Text;
+                selectedTeacher.Company = companyEntry.Text;
+                selectedTeacher.Leadsource = leadsourceEntry.Text;
+                selectedTeacher.Notes = notesEntry.Text;
 
-                conn.CreateTable<Teacher>();
+                await App.MobileService.GetTable<Teacher>().UpdateAsync(selectedTeacher);
+                await DisplayAlert("Success", "Teacher Record Successfully updated", "OK");
+            }
+            catch (NullReferenceException nre)
+            {
+                await DisplayAlert("Failure", "Teacher Record failed to be updated", "Ok");
+            }
 
-                int rows = conn.Update(selectedTeacher);
-
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully Updated", "OK");
-                else
-                    DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+            catch (Exception ex)
+            {
+                await DisplayAlert("Failure", "Teacher failed to be updated", "Ok");
             }
         }
+        //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+        //{
 
-        private void DeleteButton_Clicked(object sender, EventArgs e)
+        //    conn.CreateTable<Teacher>();
+
+        //    int rows = conn.Update(selectedTeacher);
+
+        //    if (rows > 0)
+        //        DisplayAlert("Success", "Name Successfully Updated", "OK");
+        //    else
+        //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+        //}
+
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            try
             {
+                await App.MobileService.GetTable<Teacher>().DeleteAsync(selectedTeacher);
+                await DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
+                //        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                //        {
 
-                conn.CreateTable<Teacher>();
+                //            conn.CreateTable<Teacher>();
 
-                int rows = conn.Delete(selectedTeacher);
+                //            int rows = conn.Delete(selectedTeacher);
 
 
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully Deleted", "OK");
-                else
-                    DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+                //            if (rows > 0)
+                //                DisplayAlert("Success", "Name Successfully Deleted", "OK");
+                //            else
+                //                DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+                //        }
+                //    }
+                //}
+            }
+            catch (NullReferenceException nre)
+            {
+                await DisplayAlert("Failure", "Student Record failed to be updated", "Ok");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Failure", "Student failed to be updated", "Ok");
             }
         }
     }

@@ -13,10 +13,30 @@ namespace MusicAcademyCRM
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Teachers : ContentPage
     {
+        public string UserId { get; private set; }
+
         public Teachers()
         {
             InitializeComponent();
         }
+
+       
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+            //    conn.CreateTable<Teacher>();
+            //    var teachers = conn.Table<Teacher>().ToList();
+            //    teacherListView.ItemsSource = teachers;
+            //}
+            var teachers = await App.MobileService.GetTable<Teacher>().Where(p => p.UserId == App.user.Id).ToListAsync();
+            teacherListView.ItemsSource = teachers;
+
+
+        }
+
 
         private void TeacherListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -27,21 +47,7 @@ namespace MusicAcademyCRM
                 Navigation.PushAsync(new TeacherDetailPage(selectedTeacher));
             }
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Teacher>();
-                var teachers = conn.Table<Teacher>().ToList();
-                teacherListView.ItemsSource = teachers;
-            }
 
 
-        }
-
-
-     
-}
+    }
     }

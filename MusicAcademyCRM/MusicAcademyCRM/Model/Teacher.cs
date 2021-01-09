@@ -9,7 +9,7 @@ namespace MusicAcademyCRM.Model
     public class Teacher
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [MaxLength(75)]
         public string Name { get; set; }
@@ -37,16 +37,7 @@ namespace MusicAcademyCRM.Model
 
         [MaxLength(250)]
         public string Notes { get; set; }
-
-
-
-
-
-
-
-
-
-
+        public string UserId { get; set; }
     }
 }
 

@@ -19,10 +19,12 @@ namespace MusicAcademyCRM
             InitializeComponent();
         }
 
-        private void ToolBarItem_Clicked(object sender, EventArgs e)
+        private async void ToolBarItem_Clicked(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher()
+            try
             {
+                Teacher teacher = new Teacher()
+                {
                 Name = nameEntry.Text,
                 Phone = phoneEntry.Text, 
                 Email = emailEntry.Text,
@@ -32,27 +34,39 @@ namespace MusicAcademyCRM
                 Zipcode = zipcodeEntry.Text,
                 Company = companyEntry.Text,
                 Leadsource = leadsourceEntry.Text,
-                Notes = notesEntry.Text
+                Notes = notesEntry.Text,
+                UserId = App.user.Id
 
-
-
-
-
-
-            };
-
-            using (var conn = new SQLiteConnection(App.DatabaseLocation))
+                };
+            await App.MobileService.GetTable<Teacher>().InsertAsync(teacher);
+            await DisplayAlert("Success", "Teacher Successfully inserted", "OK");
+            }
+            catch (NullReferenceException nre)
             {
-                conn.CreateTable<Teacher>();
-                
-                int rows = conn.Insert(teacher);
-               
+                await DisplayAlert("Failure", "Teacher failed to be inserted", "Ok");
+            }
 
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully inserted", "OK");
-                else
-                    DisplayAlert("Failure", "Name Failed to be inserted", "OK");
+            catch (Exception ex)
+            {
+                await DisplayAlert("Failure", "Teacher failed to be inserted", "Ok");
             }
         }
+
     }
 }
+
+            //using (var conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+            //    conn.CreateTable<Teacher>();
+                
+            //    int rows = conn.Insert(teacher);
+               
+
+            //    if (rows > 0)
+            //        DisplayAlert("Success", "Name Successfully inserted", "OK");
+            //    else
+            //        DisplayAlert("Failure", "Name Failed to be inserted", "OK");
+            //}
+//        }
+//    }
+//}

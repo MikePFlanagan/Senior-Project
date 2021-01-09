@@ -18,19 +18,21 @@ namespace MusicAcademyCRM
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Student>();
-                var students = conn.Table<Student>().ToList();
-                conn.Close();
-                studentListView.ItemsSource = students;
-            }
+            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+            //    conn.CreateTable<Student>();
+            //    var students = conn.Table<Student>().ToList();
+            //    conn.Close();
+            //    studentListView.ItemsSource = students;
+            //}
 
-            
+            var students = await App.MobileService.GetTable<Student>().Where(p => p.UserId == App.user.Id).ToListAsync();
+            studentListView.ItemsSource = students;
+
         }
 
 
