@@ -79,27 +79,30 @@ namespace MusicAcademyCRM
         {
             try
             {
-                await App.MobileService.GetTable<Teacher>().DeleteAsync(selectedTeacher);
-                await DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
-                //        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-                //        {
+                try
+                {
+                    await App.MobileService.GetTable<Teacher>().DeleteAsync(selectedTeacher);
+                    await DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
+                    //        using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                    //        {
 
-                //            conn.CreateTable<Teacher>();
+                    //            conn.CreateTable<Teacher>();
 
-                //            int rows = conn.Delete(selectedTeacher);
+                    //            int rows = conn.Delete(selectedTeacher);
 
 
-                //            if (rows > 0)
-                //                DisplayAlert("Success", "Name Successfully Deleted", "OK");
-                //            else
-                //                DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
-                //        }
-                //    }
-                //}
-            }
-            catch (NullReferenceException nre)
-            {
-                await DisplayAlert("Failure", "Student Record failed to be updated", "Ok");
+                    //            if (rows > 0)
+                    //                DisplayAlert("Success", "Name Successfully Deleted", "OK");
+                    //            else
+                    //                DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+                    //        }
+                    //    }
+                    //}
+                }
+                catch (NullReferenceException nre)
+                {
+                    await DisplayAlert("Failure", "Student Record failed to be updated", "Ok");
+                }
             }
             catch (Exception ex)
             {

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MusicAcademyCRM;
+using MusicAcademyCRM.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,16 +16,25 @@ namespace MusicAcademyCRM
         public HomePage()
         {
             InitializeComponent();
+
+            
         }
 
-        private void AddStudentsToolbarItem_Clicked(object sender, EventArgs e)
+        private void AddStudentToolbarItem_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddStudents());
 
         }
-        private void AddTeachersToolbarItem_Clicked(object sender, EventArgs e)
+        private void AddTeacherToolbarItem_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddTeachers());
+        }
+
+        private void AddLessonToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddNewPage());
+           // Navigation.PushAsync(new AddLessons());
+           //Navigation.PushAsync(new AddNewPage());
         }
     }
 

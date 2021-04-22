@@ -13,8 +13,10 @@
                       ItemSelected="TeacherListView_OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}"/>
+                        <TextCell Text="{Binding Name}" TextColor="#F2DFDF"/>
                     </DataTemplate>
+
+                    
 
                 </ListView.ItemTemplate>
             </ListView>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:MusicAcademyCRM;assembly=MusicAcademyCRM"
+            xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+            xmlns:views="clr-namespace:MusicAcademyCRM.Views;assembly=MusicAcademyCRM"
+            x:Class="MusicAcademyCRM.SchedulePage" Title="Schedule Page ">
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="Add" Clicked="MenuItem_OnClicked"></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+
+    <local:DayViewPage/>
+    <views:WeekViewPage/>
+    <local:WorkWeekViewPage/>
+    <views:MonthViewPage/>
+</TabbedPage>
