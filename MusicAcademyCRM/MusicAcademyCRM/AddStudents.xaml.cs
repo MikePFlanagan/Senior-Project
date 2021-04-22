@@ -39,7 +39,9 @@ namespace MusicAcademyCRM
                     UserId = App.user.Id
 
                 };
-                await App.MobileService.GetTable<Student>().InsertAsync(student);
+                //await App.MobileService.GetTable<Student>().InsertAsync(student);
+
+                Student.Insert(student);
                 await DisplayAlert("Success", "Name Successfully inserted", "OK");
             }
             catch (NullReferenceException nre)

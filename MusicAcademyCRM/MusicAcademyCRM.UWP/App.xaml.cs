@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -57,7 +58,14 @@ namespace MusicAcademyCRM.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                //Xamarin.Forms.Forms.Init(e);
+
+                List<Assembly> assembliesToInclude = new List<Assembly>();
+                //Now, add all the assemblies your app uses 
+                assembliesToInclude.Add(typeof(Syncfusion.SfSchedule.XForms.UWP.SfScheduleRenderer).GetTypeInfo().Assembly);
+                // replaces Xamarin.Forms.Forms.Init(e);        
+                Xamarin.Forms.Forms.Init(e, assembliesToInclude);
+
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

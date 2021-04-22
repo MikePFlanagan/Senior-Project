@@ -34,6 +34,14 @@ namespace MusicAcademyCRM
             var teachers = await App.MobileService.GetTable<Teacher>().Where(p => p.UserId == App.user.Id).ToListAsync();
             teacherListView.ItemsSource = teachers;
 
+            var picker = new Picker { Title = "Select a monkey", TitleColor = Color.Red };
+            picker.Items.Add("Baboon");
+            picker.Items.Add("Capuchin Monkey");
+            picker.Items.Add("Blue Monkey");
+            picker.Items.Add("Squirrel Monkey");
+            picker.Items.Add("Golden Lion Tamarin");
+            picker.Items.Add("Howler Monkey");
+            picker.Items.Add("Japanese Macaque");
 
         }
 

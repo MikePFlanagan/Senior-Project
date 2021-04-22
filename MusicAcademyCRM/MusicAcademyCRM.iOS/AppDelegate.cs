@@ -25,6 +25,7 @@ namespace MusicAcademyCRM.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
             CurrentPlatform.Init();
 
             string dbName = "academy_db.sqlite";

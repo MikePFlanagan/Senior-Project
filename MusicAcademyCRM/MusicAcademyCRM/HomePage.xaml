@@ -4,24 +4,29 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:MusicAcademyCRM;assembly=MusicAcademyCRM"
+             xmlns:model="clr-namespace:MusicAcademyCRM.Model;assembly=MusicAcademyCRM"
              mc:Ignorable="d"
              x:Class="MusicAcademyCRM.HomePage"
              BackgroundColor="Maroon">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text ="Add Students"
+        <ToolbarItem Text ="Add Student"
                      
-                     Clicked="AddStudentsToolbarItem_Clicked"/>
+                     Clicked="AddStudentToolbarItem_Clicked"/>
 
-        <ToolbarItem Text ="Add Teachers"
+        <ToolbarItem Text ="Add Teacher"
                      
-                     Clicked="AddTeachersToolbarItem_Clicked"/>
-        
-       
-                    
+                     Clicked="AddTeacherToolbarItem_Clicked"/>
+        <ToolbarItem Text ="Add Lesson"
                      
-    </TabbedPage.ToolbarItems>
-    <local:Schedule Title="Schedule"/>                    
+                     Clicked="AddLessonToolbarItem_Clicked"/>
+
+
+
+
+
+</TabbedPage.ToolbarItems>
+    <local:SchedulePage Title="Lessons"/>                    
     <local:Students Title="Students"/>
     <local:Teachers Title="Teachers"/>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using SQLite;
 
@@ -42,6 +43,12 @@ namespace MusicAcademyCRM.Model
             public string  UserId { get; set; }
 
 
-        }
+            public static async void Insert(Student student)
+            {
+            await App.MobileService.GetTable<Student>().InsertAsync(student);
+
+            }
+
+    }
     }
 

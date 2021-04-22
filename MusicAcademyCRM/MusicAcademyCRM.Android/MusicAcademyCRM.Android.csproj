@@ -59,6 +59,9 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfDataForm">
+      <Version>17.1.0.38</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
       <Version>18.4.0.33</Version>
     </PackageReference>
