@@ -12,11 +12,11 @@ using Xamarin.Forms;
 namespace MusicAcademyCRM
 {
    
-    public partial class Students : ContentPage
+    public partial class Lessons : ContentPage
     {
         
 
-        public Students()
+        public Lessons()
         {
             InitializeComponent();
         }
@@ -35,21 +35,21 @@ namespace MusicAcademyCRM
             //    studentListView.ItemsSource = students;
             //}
 
-            studentListView.ItemsSource = null;
-            var students = await Firestore.Read();
-            studentListView.ItemsSource = students;
+            lessonListView.ItemsSource = null;
+            var lessons = await LessonFirestore.Read();            
+            lessonListView.ItemsSource = lessons;
 
             
         }
 
 
-        private void StudentListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void lessonListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedStudent = studentListView.SelectedItem as Student;
+            var selectedLesson = lessonListView.SelectedItem as Lesson;
 
-            if (selectedStudent != null)
+            if (selectedLesson != null)
             {
-                Navigation.PushAsync(new StudentDetailPage(selectedStudent));
+                Navigation.PushAsync(new LessonDetailPage(selectedLesson));
             }
         }
     }

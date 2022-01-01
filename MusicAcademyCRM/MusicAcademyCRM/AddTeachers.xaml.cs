@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicAcademyCRM.Helpers;
 using MusicAcademyCRM.Model;
 using SQLite;
 using Xamarin.Forms;
@@ -21,8 +22,10 @@ namespace MusicAcademyCRM
 
         private void ToolBarItem_Clicked(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher()
+            try
             {
+                Teacher newTeacher = new Teacher()
+                {
                 Name = nameEntry.Text,
                 Phone = phoneEntry.Text, 
                 Email = emailEntry.Text,
@@ -34,25 +37,49 @@ namespace MusicAcademyCRM
                 Leadsource = leadsourceEntry.Text,
                 Notes = notesEntry.Text
 
+                };
+
+                //using (var conn = new SQLiteConnection(App.DatabaseLocation))
+                //{
+                //    conn.CreateTable<Teacher>();
+
+                //    int rows = conn.Insert(teacher);
 
 
+                //    if (rows > 0)
+                //        DisplayAlert("Success", "Name Successfully inserted", "OK");
+                //    else
+                //        DisplayAlert("Failure", "Name Failed to be inserted", "OK");
+                //}
+
+                bool result = TeacherFirestore.Insert(newTeacher);
+                if (result)
+                {
+                    nameEntry.Text = string.Empty;
+                    phoneEntry.Text = string.Empty;
+                    emailEntry.Text = string.Empty;
+                    addressEntry.Text = string.Empty;
+                    cityEntry.Text = string.Empty;
+                    stateEntry.Text = string.Empty;
+                    zipcodeEntry.Text = string.Empty;
+                    companyEntry.Text = string.Empty;
+                    leadsourceEntry.Text = string.Empty;
+                    notesEntry.Text = string.Empty;
 
 
-
-            };
-
-            using (var conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-                conn.CreateTable<Teacher>();
-                
-                int rows = conn.Insert(teacher);
-               
-
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully inserted", "OK");
+                    DisplayAlert("Success", "Teacher Successfully added", "OK");
+                }
                 else
-                    DisplayAlert("Failure", "Name Failed to be inserted", "OK");
+                    DisplayAlert("Failure", "Teacher Failed to be added", "OK");
+                }
+                catch (NullReferenceException nrex) 
+                { 
+
+                }
+                catch (Exception ex)
+                {
+            
+                }
             }
         }
     }
-}

@@ -9,19 +9,21 @@
              BackgroundColor="Maroon">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text ="Add Students"
+        <ToolbarItem Text ="Add Student"
                      
                      Clicked="AddStudentsToolbarItem_Clicked"/>
 
-        <ToolbarItem Text ="Add Teachers"
+        <ToolbarItem Text ="Add Teacher"
                      
                      Clicked="AddTeachersToolbarItem_Clicked"/>
-        
+        <ToolbarItem Text ="Add Lesson"
+                     
+                     Clicked="AddLessonsToolbarItem_Clicked"/>
        
                     
                      
     </TabbedPage.ToolbarItems>
-    <local:Schedule Title="Schedule"/>                    
+    <local:Lessons Title="Schedule"/>                    
     <local:Students Title="Students"/>
     <local:Teachers Title="Teachers"/>
 

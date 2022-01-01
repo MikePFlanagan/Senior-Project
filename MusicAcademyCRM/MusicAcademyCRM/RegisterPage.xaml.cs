@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicAcademyCRM.Helpers;
 using MusicAcademyCRM.Model;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -29,7 +30,14 @@ namespace MusicAcademyCRM
                     Password = passwordEntry.Text
                 };
 
-               await App.client.GetTable<Users>().InsertAsync(user);
+                bool result = await Auth.RegisterUser(emailEntry.Text, passwordEntry.Text);
+                
+
+                if (result)
+                    await Navigation.PushAsync(new MainPage());
+                //await App.client.GetTable<Users>().InsertAsync(user);
+
+
             }
             else
             {

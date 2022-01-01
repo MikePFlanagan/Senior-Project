@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:behaviors="clr-namespace:MusicAcademyCRM.Behaviors"
+             x:Class="MusicAcademyCRM.AddLessons"             
+             mc:Ignorable="d"
+             BackgroundColor="Maroon">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save"
+                     Clicked="ToolBarItem_Clicked"/>
+        </ContentPage.ToolbarItems>
+
+
+        <ContentPage.Content>
+            <ScrollView>
+            <StackLayout
+            Margin="20">
+                <Label Text="Student Name:"
+                       TextColor="White"/>
+                <Entry x:Name="studentNameEntry"                   
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource maroonColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>
+
+                <Label Text="Teacher Name:"
+                       TextColor="White"/>
+                <Entry x:Name="teacherNameEntry"                   
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource maroonColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>
+
+                <Label Text="Instrument:"
+                       TextColor="White"/>
+                <Entry x:Name="instrumentEntry"                   
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource maroonColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>
+
+                <Label Text="Amount:"
+                       TextColor="White"/>
+                <Entry x:Name="amountEntry"
+                       Text="{Binding Amount,Mode=TwoWay}"
+                   Margin="1,-6"
+                   Keyboard="Numeric"           
+                   BackgroundColor="{StaticResource maroonColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>
+
+                <Label Text="Select the Lesson Start Date:"
+                       TextColor="White"/>
+                <DatePicker x:Name="startDatePicker"
+                    Date="{Binding StartDate, Mode=OneWayToSource}" 
+                            BackgroundColor="{StaticResource maroonColor}"
+                            TextColor="{StaticResource whiteColor}"
+                            MinimumDate="{x:Static sys:DateTime.Now}"
+                            MaximumDate="2050/01/01"/>
+
+                <Label Text="Select the Lesson End Date:" 
+                       TextColor="White"/>
+                <DatePicker x:Name="endDatePicker"
+                    Date="{Binding EndDate, Mode=OneWayToSource}"                           
+                            TextColor="{StaticResource whiteColor}"
+                            MinimumDate="{x:Static sys:DateTime.Now}"
+                            MaximumDate="{Binding StartDate}"/>               
+
+                    <!--<Entry x:Name="dateEntry"
+                   Placeholder="Date:"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource blackColor}"
+                   PlaceholderColor="{StaticResource maroonColor}"
+                   TextColor="{StaticResource whiteColor}"/>-->
+
+                <Label Text="Select the Lesson Start Time"
+                      TextColor="{StaticResource whiteColor}"/>
+                <TimePicker x:Name="startTimePicker"
+                         TextColor="{StaticResource whiteColor}"   
+                    
+                    Format="T"
+                            Time="{Binding From, Mode=TwoWay}" />
+                    <!--PropertyChanged="OnTimePickerPropertyChanged" />-->
+
+                <Label Text="Select the Lesson End Time"
+                      TextColor="{StaticResource whiteColor}"/>
+                <TimePicker x:Name="endTimePicker"
+                    TextColor="{StaticResource whiteColor}"
+                    Format="T"
+                    Time="{Binding To, Mode=TwoWay}" />
+
+                <!--<Entry x:Name="fromEntry"
+                   Placeholder="Start Time"
+                   Margin="1,-6"
+                   Keyboard="Email"
+                   BackgroundColor="{StaticResource blackColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>
+
+                <Entry x:Name="toEntry"
+                   Placeholder="End Time"
+                   Margin="1,-6"
+                   Keyboard="Default"
+                   BackgroundColor="{StaticResource blackColor}"
+                   PlaceholderColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource whiteColor}"/>-->
+                
+                     
+                        
+            </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>

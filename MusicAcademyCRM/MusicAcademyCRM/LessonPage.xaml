@@ -4,22 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MusicAcademyCRM.Students"
+             x:Class="MusicAcademyCRM.Lessons"
              BackgroundColor="Maroon">
 
 
-    <ListView x:Name="studentListView"
+    <ListView x:Name="lessonListView"
               BackgroundColor="{StaticResource blackColor}"
-              ItemSelected="StudentListView_OnItemSelected">
+              ItemSelected="lessonListView_OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                
-                <TextCell Text="{Binding Name}"
+                <TextCell Text="{Binding StudentName}"
+                          TextColor="White"
+                          StyleId="disclosure"
+                          Detail="{Binding Date}"
+                          DetailColor="{StaticResource maroonColor}" />                    
                           
-                          TextColor="{StaticResource whiteColor}"/>
             </DataTemplate>
-            
         </ListView.ItemTemplate>
     </ListView>
-
 </ContentPage>

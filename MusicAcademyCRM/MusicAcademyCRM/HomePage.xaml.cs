@@ -26,6 +26,11 @@ namespace MusicAcademyCRM
         {
             Navigation.PushAsync(new AddTeachers());
         }
+
+        private void AddLessonsToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddLessons());
+        }
     }
 
     

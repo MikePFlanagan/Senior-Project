@@ -9,11 +9,12 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="teacherListView"
-                      BackgroundColor="Maroon"
+                      BackgroundColor="{StaticResource blackColor}"
                       ItemSelected="TeacherListView_OnItemSelected">
-                <ListView.ItemTemplate>
+                <ListView.ItemTemplate>                    
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}"/>
+                        <TextCell Text="{Binding Name}"                                 
+                                  TextColor="{StaticResource whiteColor}"/>
                     </DataTemplate>
 
                 </ListView.ItemTemplate>

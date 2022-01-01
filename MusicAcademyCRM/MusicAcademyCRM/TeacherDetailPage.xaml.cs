@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicAcademyCRM.Helpers;
 using MusicAcademyCRM.Model;
 using SQLite;
 using Xamarin.Essentials;
@@ -31,9 +32,9 @@ namespace MusicAcademyCRM
             notesEntry.Text = selectedTeacher.Notes;
         }
 
-        
 
-        private void UpdateButton_Clicked(object sender, EventArgs e)
+
+        async void UpdateButton_Clicked(object sender, EventArgs e)
         {
             selectedTeacher.Name = nameEntry.Text;
             selectedTeacher.Phone = phoneEntry.Text;
@@ -45,35 +46,55 @@ namespace MusicAcademyCRM
             selectedTeacher.Leadsource = leadsourceEntry.Text;
             selectedTeacher.Notes = notesEntry.Text;
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+
+            //    conn.CreateTable<Teacher>();
+
+            //    int rows = conn.Update(selectedTeacher);
+
+            //    if (rows > 0)
+            //        DisplayAlert("Success", "Name Successfully Updated", "OK");
+            //    else
+            //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+            //}
+
+            bool result = await TeacherFirestore.Update(selectedTeacher);
+            if (result)
             {
-
-                conn.CreateTable<Teacher>();
-
-                int rows = conn.Update(selectedTeacher);
-
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully Updated", "OK");
-                else
-                    DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+                DisplayAlert("Success", "Teacher Successfully Updated", "OK");
+                Navigation.PopAsync();
             }
+            else
+                DisplayAlert("Failure", "Teacher Failed to be Updated", "OK");
         }
 
-        private void DeleteButton_Clicked(object sender, EventArgs e)
+
+        async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+
+            //    conn.CreateTable<Student>();
+
+            //    int rows = conn.Delete(selectedStudent);
+
+
+            //    if (rows > 0)
+            //        DisplayAlert("Success", "Name Successfully Deleted", "OK");
+            //    else
+            //        DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+            //}
+
+            bool result = await TeacherFirestore.Delete(selectedTeacher);
+            if (result)
             {
-
-                conn.CreateTable<Teacher>();
-
-                int rows = conn.Delete(selectedTeacher);
-
-
-                if (rows > 0)
-                    DisplayAlert("Success", "Name Successfully Deleted", "OK");
-                else
-                    DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+                DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
+                Navigation.PopAsync();
             }
+            else
+                DisplayAlert("Failure", "Teacher Failed to be Deleted", "OK");
         }
     }
 }
+    
