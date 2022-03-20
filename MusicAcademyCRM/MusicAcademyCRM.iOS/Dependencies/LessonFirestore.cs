@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Foundation;
-using Android.Text.Format;
+
 
 [assembly: Dependency(typeof(MusicAcademyCRM.iOS.Dependencies.LessonFirestore))]
 namespace MusicAcademyCRM.iOS.Dependencies

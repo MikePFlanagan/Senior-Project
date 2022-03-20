@@ -10,6 +10,13 @@
         <StackLayout VerticalOptions="Center"
                      Margin="20">
 
+            <Image x:Name="IconImage"               
+           Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand"
+               Margin="0,0,0,80"
+           />
+
             <Entry x:Name="emailEntry"
                    Placeholder="Email Address"
                    Keyboard="Email" 

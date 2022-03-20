@@ -154,6 +154,11 @@
     <PackageReference Include="Microsoft.Bcl.Build">
       <Version>1.0.21</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Bcl.Build.Symbols">
+      <Version>1.1.28</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
     </PackageReference>

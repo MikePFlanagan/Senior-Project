@@ -18,6 +18,9 @@ namespace MusicAcademyCRM
         public RegisterPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(RegisterPage);
+            IconImage.Source = ImageSource.FromResource("MusicAcademyCRM.Assets.Images.pma.jpeg", assembly);
         }
 
         private async void registerButton_Clicked(object sender, EventArgs e)

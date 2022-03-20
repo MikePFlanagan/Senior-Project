@@ -20,7 +20,7 @@ namespace MusicAcademyCRM
 
             var assembly = typeof(MainPage);
 
-            iconImage.Source = ImageSource.FromResource("MusicAcademyCRM.Assets.Images.pma.jpeg", assembly);
+            IconImage.Source = ImageSource.FromResource("MusicAcademyCRM.Assets.Images.pma.jpeg", assembly);
         }
 
        

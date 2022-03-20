@@ -34,7 +34,7 @@ namespace MusicAcademyCRM
                     City = cityEntry.Text,
                     State = stateEntry.Text,
                     Zipcode = zipcodeEntry.Text,
-                    Company = companyEntry.Text,
+                    
                     Leadsource = leadsourceEntry.Text,
                     Notes = notesEntry.Text
 
@@ -56,7 +56,7 @@ namespace MusicAcademyCRM
                     cityEntry.Text = string.Empty;
                     stateEntry.Text = string.Empty;
                     zipcodeEntry.Text = string.Empty;
-                    companyEntry.Text = string.Empty;
+                   
                     leadsourceEntry.Text = string.Empty;
                     notesEntry.Text = string.Empty;
 

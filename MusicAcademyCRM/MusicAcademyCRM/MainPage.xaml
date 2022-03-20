@@ -10,35 +10,48 @@
 
     <StackLayout VerticalOptions="Center"
                  Margin="20">
-        <Image x:Name="iconImage"
-           Aspect="AspectFit"
-           HorizontalOptions="FillAndExpand"
-           Margin =" 0,0,0,50"/>
+        <Image x:Name="IconImage"               
+           Aspect="AspectFill"
+            HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center"
+               Margin="0,0,0,80"
+           />
+        
+        <Label Text="Email:"
+               TextColor="{StaticResource blackColor}"></Label>
         <Entry x:Name="EmailEntry"
                Placeholder="Email Address"
                Keyboard="Email" 
                BackgroundColor="{StaticResource blackColor}"
                PlaceholderColor="{StaticResource whiteColor}"
                TextColor="{StaticResource whiteColor}"/>
-               
+        
+        <Label Text="Password:"
+               TextColor="{StaticResource blackColor}"></Label>
         <Entry x:Name="PasswordEntry"
                Placeholder="Password"
                IsPassword="True" 
                BackgroundColor="{StaticResource blackColor}"
                PlaceholderColor="{StaticResource whiteColor}"
                TextColor="{StaticResource whiteColor}"/>
-               
+
+        <Label Text=""
+               TextColor="{StaticResource blackColor}"></Label>
         <Button x:Name="LoginButton"
                 Margin="0,50,0,0"
-                Text="Log in"
+                Text="Login"
                 Clicked ="LoginButton_Clicked"
                 BackgroundColor="{StaticResource blackColor}"
                 TextColor="{StaticResource whiteColor}"
                />
+       
+              
         <Button x:Name="RegisterUserButton"
                 Text="Register"
-                HorizontalOptions="End"
+                 Margin="0,0,0,0"
                 Clicked ="RegisterUserButton_OnClicked"
+                BackgroundColor="{StaticResource blackColor}"
+                TextColor="{StaticResource whiteColor}"
         />
 
 

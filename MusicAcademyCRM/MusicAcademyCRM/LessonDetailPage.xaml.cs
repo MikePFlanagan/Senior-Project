@@ -21,7 +21,7 @@ namespace MusicAcademyCRM
             instrumentEntry.Text = selectedLesson.Instrument;
             startDatePicker.Date = selectedLesson.StartDate.Date;
             
-            endDatePicker.Date = selectedLesson.EndDate;
+            //endDatePicker.Date = selectedLesson.EndDate;
             startTimePicker.Time = selectedLesson.StartDate.TimeOfDay;
             endTimePicker.Time = selectedLesson.EndDate.TimeOfDay;
             amountEntry.Text = selectedLesson.Amount;
@@ -39,7 +39,7 @@ namespace MusicAcademyCRM
             selectedLesson.Instrument = instrumentEntry.Text;
             selectedLesson.StartDate = startDatePicker.Date;
             selectedLesson.StartTime = startTimePicker.Time;
-            selectedLesson.EndDate = endDatePicker.Date;
+            //selectedLesson.EndDate = endDatePicker.Date;
              
             selectedLesson.EndTime = endTimePicker.Time;
             selectedLesson.Amount = amountEntry.Text;
