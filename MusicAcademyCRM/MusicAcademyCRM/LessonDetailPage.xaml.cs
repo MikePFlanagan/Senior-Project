@@ -18,14 +18,14 @@ namespace MusicAcademyCRM
             this.selectedLesson = selectedLesson;
             studentNameEntry.Text = selectedLesson.StudentName;
             teacherNameEntry.Text = selectedLesson.TeacherName;
-
             instrumentEntry.Text = selectedLesson.Instrument;
-            startDatePicker.Date = selectedLesson.StartDate;
-            endDatePicker.Date = selectedLesson.EndDate;
-            //startTimePicker.Time = selectedLesson.From; ;
-            //endTimePicker.Time = selectedLesson.To;
-            amountEntry.Text = selectedLesson.Amount;
+            startDatePicker.Date = selectedLesson.StartDate.Date;
             
+            endDatePicker.Date = selectedLesson.EndDate;
+            startTimePicker.Time = selectedLesson.StartDate.TimeOfDay;
+            endTimePicker.Time = selectedLesson.EndDate.TimeOfDay;
+            amountEntry.Text = selectedLesson.Amount;
+
             
             
         }
@@ -38,9 +38,10 @@ namespace MusicAcademyCRM
             selectedLesson.TeacherName = teacherNameEntry.Text;
             selectedLesson.Instrument = instrumentEntry.Text;
             selectedLesson.StartDate = startDatePicker.Date;
+            selectedLesson.StartTime = startTimePicker.Time;
             selectedLesson.EndDate = endDatePicker.Date;
-            //selectedLesson.From = startTimePicker.Time;
-            //selectedLesson.To = endTimePicker.Time;
+             
+            selectedLesson.EndTime = endTimePicker.Time;
             selectedLesson.Amount = amountEntry.Text;
             //selectedLesson.Phone = phoneEntry.Text;
             //selectedLesson.Email = emailEntry.Text;
@@ -102,9 +103,6 @@ namespace MusicAcademyCRM
                 DisplayAlert("Failure", "Lesson Failed to be Deleted", "OK");
         }
 
-        private void OnDateSelected(object sender, DateChangedEventArgs e)
-        {
-
-        }
+       
     }
 }

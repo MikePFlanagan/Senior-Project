@@ -13,10 +13,10 @@
               ItemSelected="lessonListView_OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding StudentName}"
+                <TextCell Text="{Binding Instrument, StringFormat= '{0} lesson on'}"
                           TextColor="White"
                           StyleId="disclosure"
-                          Detail="{Binding Date}"
+                          Detail="{Binding StartDate, StringFormat='{}{0:dddd a\\t h:mm tt,         o\\n MMMM dd yyyy}'}"
                           DetailColor="{StaticResource maroonColor}" />                    
                           
             </DataTemplate>

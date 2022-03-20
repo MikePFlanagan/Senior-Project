@@ -51,7 +51,7 @@
                 <Label Text="Select the Lesson Start Time"
                       TextColor="{StaticResource whiteColor}"/>
                 <TimePicker x:Name="startTimePicker"
-                            Time="{Binding From, Mode=TwoWay}" 
+                            Time="{Binding StartTime, Mode=TwoWay}" 
                             />
 
                 <Label Text="Select the Lesson End Date:" 
@@ -77,7 +77,7 @@
                 <Label Text="Select the Lesson End Time"
                       TextColor="{StaticResource whiteColor}"/>
                 <TimePicker x:Name="endTimePicker"                   
-                    Time="{Binding To, Mode=TwoWay}" />
+                    Time="{Binding EndTime, Mode=TwoWay}" />
 
 
                 <!--<Entry x:Name="dateEntry"

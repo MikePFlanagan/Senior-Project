@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Firebase.Core;
+
 using Foundation;
-using Microsoft.WindowsAzure.MobileServices;
+
 using UIKit;
 
 namespace MusicAcademyCRM.iOS
@@ -26,7 +26,7 @@ namespace MusicAcademyCRM.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Firebase.Core.App.Configure();
-            //CurrentPlatform.Init();
+            
 
             string dbName = "academy_db.sqlite";
             string folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");

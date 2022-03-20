@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,27 +17,32 @@ namespace MusicAcademyCRM
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddLessons : ContentPage
     {
-        DateTime StartTime;
+        
         public AddLessons()
         {
             InitializeComponent();
+            startDatePicker.Date = startDatePicker.Date;
+            startTimePicker.Time = DateTime.Now.TimeOfDay;
+            endTimePicker.Time = DateTime.Now.TimeOfDay;
         }
 
-        void OnDateSelected(object sender, DateChangedEventArgs args)
-        {
-            Recalculate();
-        }
-        void Recalculate()
-        {
-            TimeSpan timeSpan = endDatePicker.Date - startDatePicker.Date;
+   
 
-            
-        }
-        
+        //void OnDateSelected(object sender, DateChangedEventArgs args)
+        //{
+        //    Recalculate();
+        //}
+        //void Recalculate()
+        //{
 
-       
 
-            private void ToolBarItem_Clicked(object sender, EventArgs e)
+
+        //}
+
+
+
+
+        private void ToolBarItem_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -45,13 +51,14 @@ namespace MusicAcademyCRM
                     StudentName = studentNameEntry.Text,
                     TeacherName = teacherNameEntry.Text,
                     Instrument = instrumentEntry.Text,
-                    StartDate = startDatePicker.Date.Add(startTimePicker.Time),
-                    EndDate = endDatePicker.Date.Add(endTimePicker.Time),
-                    //From = startTimePicker.Time,
-                    //To = endTimePicker.Time,
-                    Amount = amountEntry.Text,
+                    StartDate = startDatePicker.Date,
+                    StartTime = startDatePicker.Date.Add(startTimePicker.Time).TimeOfDay,
+                    EndDate = startDatePicker.Date,
+                    EndTime = endTimePicker.Time,
+                    Amount = amountEntry.Text
+                    
                 };
-                   
+               
            
 
                     //using (var conn = new SQLiteConnection(App.DatabaseLocation))
@@ -67,14 +74,12 @@ namespace MusicAcademyCRM
                     studentNameEntry.Text = string.Empty;
                     teacherNameEntry.Text = string.Empty;
                     instrumentEntry.Text = string.Empty;
-                    startDatePicker.Date = DateTime.Now;
-                    endDatePicker.Date = DateTime.Now.AddMinutes(30);
-                    startTimePicker.Time = TimeSpan.Zero;
-                    endTimePicker.Time = TimeSpan.Zero;
-
+                    startDatePicker.Date = startDatePicker.Date;
+                    startTimePicker.Time = DateTime.Now.TimeOfDay;                   
+                    endTimePicker.Time = DateTime.Now.TimeOfDay;
+                    //StartTimeEntry.Text = string.Empty;
+                    //EndTimeEntry.Text = string.Empty;
                     amountEntry.Text = string.Empty;
-
-
 
                     DisplayAlert("Success", "Lesson Successfully Saved", "OK");
                 }

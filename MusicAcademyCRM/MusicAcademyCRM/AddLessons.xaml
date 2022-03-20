@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:behaviors="clr-namespace:MusicAcademyCRM.Behaviors"
+          
              x:Class="MusicAcademyCRM.AddLessons"             
              mc:Ignorable="d"
              BackgroundColor="Maroon">
@@ -49,14 +49,15 @@
                 <Label Text="Amount:"
                        TextColor="White"/>
                 <Entry x:Name="amountEntry"
-                       Text="{Binding Amount,Mode=TwoWay}"
+                       
                    Margin="1,-6"
-                   Keyboard="Numeric"           
+                   Keyboard="Numeric"  
+                     
                    BackgroundColor="{StaticResource maroonColor}"
                    PlaceholderColor="{StaticResource whiteColor}"
                    TextColor="{StaticResource whiteColor}"/>
 
-                <Label Text="Select the Lesson Start Date:"
+                    <Label Text="Lesson Date:"
                        TextColor="White"/>
                 <DatePicker x:Name="startDatePicker"
                     Date="{Binding StartDate, Mode=OneWayToSource}" 
@@ -65,37 +66,19 @@
                             MinimumDate="{x:Static sys:DateTime.Now}"
                             MaximumDate="2050/01/01"/>
 
-                <Label Text="Select the Lesson End Date:" 
-                       TextColor="White"/>
-                <DatePicker x:Name="endDatePicker"
-                    Date="{Binding EndDate, Mode=OneWayToSource}"                           
-                            TextColor="{StaticResource whiteColor}"
-                            MinimumDate="{x:Static sys:DateTime.Now}"
-                            MaximumDate="{Binding StartDate}"/>               
-
-                    <!--<Entry x:Name="dateEntry"
-                   Placeholder="Date:"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource maroonColor}"
-                   TextColor="{StaticResource whiteColor}"/>-->
-
                 <Label Text="Select the Lesson Start Time"
-                      TextColor="{StaticResource whiteColor}"/>
+                    TextColor="{StaticResource whiteColor}"/>
                 <TimePicker x:Name="startTimePicker"
-                         TextColor="{StaticResource whiteColor}"   
-                    
-                    Format="T"
-                            Time="{Binding From, Mode=TwoWay}" />
-                    <!--PropertyChanged="OnTimePickerPropertyChanged" />-->
+                    TextColor="{StaticResource whiteColor}"                  
+                    Format = "h:mm tt"
+                    Time="{Binding StartTime, Mode=OneWayToSource}" />
 
                 <Label Text="Select the Lesson End Time"
-                      TextColor="{StaticResource whiteColor}"/>
+                    TextColor="{StaticResource whiteColor}"/>
                 <TimePicker x:Name="endTimePicker"
                     TextColor="{StaticResource whiteColor}"
-                    Format="T"
-                    Time="{Binding To, Mode=TwoWay}" />
+                    Format = "h:mm tt"
+                    Time="{Binding EndTime, Mode=OneWayToSource}" />
 
                 <!--<Entry x:Name="fromEntry"
                    Placeholder="Start Time"

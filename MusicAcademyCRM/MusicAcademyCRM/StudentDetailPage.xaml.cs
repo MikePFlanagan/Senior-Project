@@ -47,7 +47,7 @@ namespace MusicAcademyCRM
             selectedStudent.Company = companyEntry.Text;
             selectedStudent.Leadsource = leadsourceEntry.Text;
             selectedStudent.Notes = notesEntry.Text;
-
+           
             //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             //{
 
@@ -64,12 +64,16 @@ namespace MusicAcademyCRM
             bool result = await Firestore.Update(selectedStudent);
             if (result)
             {
-                DisplayAlert("Success", "Student Successfully Updated", "OK");
-                Navigation.PopAsync();
+                await DisplayAlert("Success", "Student Successfully Updated", "OK");
+                await Navigation.PopAsync();
             }
             else
-                DisplayAlert("Failure", "Student Failed to be Updated", "OK");
+            {
+                await DisplayAlert("Failure", "Student Failed to be Updated", "OK");
+                await Navigation.PopAsync();
+            }
         }
+
 
 
         async void DeleteButton_Clicked(object sender, EventArgs e)
@@ -91,11 +95,14 @@ namespace MusicAcademyCRM
             bool result = await Firestore.Delete(selectedStudent);
             if (result)
             {
-                DisplayAlert("Success", "Student Successfully Deleted", "OK");
-                Navigation.PopAsync();
+                await DisplayAlert("Success", "Student Successfully Deleted", "OK");
+                await Navigation.PopAsync();
             }
             else
-                DisplayAlert("Failure", "Student Failed to be Deleted", "OK");
+            {
+                await DisplayAlert("Failure", "Student Failed to be Deleted", "OK");
+                await Navigation.PopAsync();
+            }
         }
     }
 }

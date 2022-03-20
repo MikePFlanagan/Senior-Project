@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Foundation;
-
+using Android.Text.Format;
 
 [assembly: Dependency(typeof(MusicAcademyCRM.iOS.Dependencies.LessonFirestore))]
 namespace MusicAcademyCRM.iOS.Dependencies
@@ -50,8 +50,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString("instrument"),
                     new NSString("startdate"),
                     new NSString("enddate"),
-                    //new NSString("from"),
-                    //new NSString("to"),
+                    new NSString("starttime"),
+                    new NSString("endtime"),
                     new NSString("amount"),
                     new NSString("userId")
                    
@@ -63,8 +63,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(lesson.Instrument),
                     new NSString(DateTimeToNSDate(lesson.StartDate).ToString()),
                     new NSString(DateTimeToNSDate(lesson.EndDate).ToString()),
-
-
+                    new NSString(lesson.StartTime.ToString()),
+                    new NSString(lesson.EndTime.ToString()),
                     new NSString(lesson.Amount),
                     new NSString(lesson.UserId),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
@@ -122,10 +122,9 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     Instrument = dictionary.ValueForKey(new NSString("instrument")) as NSString,
                     //StartDate = (DateTime)(dictionary.ValueForKey(new NSString("startdate")) as NSDate),                   
                     //EndDate = (DateTime)(dictionary.ValueForKey(new NSString("enddate"))as NSDate),
-                    StartDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("startdate")) as NSDate),                   
-                    EndDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("enddate"))as NSDate),
-                    //From = TimeSpan.Parse(dictionary.ValueForKey(new NSString("from")) as NSString),                  
-                    //To = TimeSpan.Parse(dictionary.ValueForKey(new NSString("enddate")) as NSString),                    
+                    StartDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("startdate")) as NSDate),
+                    EndDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("enddate")) as NSDate),
+                    
                     Amount = dictionary.ValueForKey(new NSString("amount")) as NSString,
                     UserId = dictionary.ValueForKey(new NSString("userId")) as NSString,
                     Id = doc.Id
@@ -163,7 +162,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(lesson.StudentName),                   
                     new NSString(lesson.TeacherName),
                     new NSString(lesson.Instrument),
-                    new NSString(lesson.StartDate.ToString()),
+                    new NSString(lesson.StartTime.ToString()),
                     new NSString(lesson.EndDate.ToString()),
                     //new NSString(lesson.StartDate.Add(lesson.From).ToString()),
                     //new NSString(lesson.EndDate.Add(lesson.To).ToString()),

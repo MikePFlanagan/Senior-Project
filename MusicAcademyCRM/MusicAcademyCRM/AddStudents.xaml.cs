@@ -58,8 +58,8 @@ namespace MusicAcademyCRM
                     zipcodeEntry.Text = string.Empty;
                     companyEntry.Text = string.Empty;
                     leadsourceEntry.Text = string.Empty;
-                    notesEntry.Text = string.Empty;                 
-                                     
+                    notesEntry.Text = string.Empty;
+
 
                     DisplayAlert("Success", "Student Successfully inserted", "OK");
                 }

@@ -54,10 +54,10 @@ namespace MusicAcademyCRM.Droid.Dependencies
                     //{"startdate", lesson.StartDate.Date.ToString() },
                     //{"enddate", lesson.EndDate.Date.ToShortDateString() },
 
-                    { "startdate", lesson.StartDate.Date.ToString() },
-                    { "enddate", lesson.EndDate.Date.ToString() },
-                    {"from", lesson.StartDate.TimeOfDay.ToString() },
-                    {"to", lesson.EndDate.TimeOfDay.ToString() },
+                    { "startdate", lesson.StartDate.Add(lesson.StartTime).ToString()},
+                    { "enddate", lesson.EndDate.Add(lesson.EndTime).ToString()},
+                    {"starttime", lesson.StartTime.ToString() },
+                    {"endtime", lesson.EndTime.ToString() },
                     { "amount", lesson.Amount },
                     { "userId",Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid },
 
@@ -88,25 +88,24 @@ namespace MusicAcademyCRM.Droid.Dependencies
 
                     foreach (var item in documents)
                     {
-                        
 
-                        Lesson newLesson = new Lesson()
+
+                        lessons.Add(new Lesson()
                         {
-                            
+
                             StudentName = (string)item.Get("studentname"),
                             TeacherName = (string)item.Get("teachername"),
                             Instrument = (string)item.Get("instrument"),
                             StartDate = DateTime.Parse((string)item.Get("startdate")),
                             EndDate = DateTime.Parse((string)item.Get("enddate")),
-                            //From = TimeSpan.Parse(item.Get("from").ToString()),
-                            //To = TimeSpan.Parse(item.Get("to").ToString()),
-                            //From = TimeSpan.Parse((string)item.Get("from")),
-                            //To = TimeSpan.Parse((string)item.Get("to")),
+                            //StartTime = TimeSpan.Parse("startdate"),
+                            //EndTime = TimeSpan.Parse((string)item.Get("endtime")),
+                            //StartTime = TimeSpan.Parse((string)item.Get("from")),
+                            //EndTime = TimeSpan.Parse((string)item.Get("to")),
                             Amount = (string)item.Get("amount"),
                             UserId = (string)item.Get("userId"),
                             Id = item.Id,
-                        };
-                        lessons.Add(newLesson);
+                        });
                     }
                 }
             }
@@ -151,25 +150,13 @@ namespace MusicAcademyCRM.Droid.Dependencies
                     {"studentname", lesson.StudentName },
                     {"teachername",lesson.TeacherName },
                     {"instrument", lesson.Instrument },
-                    //{"startdate", lesson.StartDate.Date.ToString() },
-                    //{"enddate", lesson.EndDate.Date.ToShortDateString() },
 
-                    { "startdate", lesson.StartDate.Date.ToString() },
-                    { "enddate", lesson.EndDate.Date.ToString() },
-                    //{"from", lesson.From.ToString() },
-                    //{"to", lesson.To.ToString() },
+                    { "startdate", lesson.StartDate.Add(lesson.StartTime).ToString()},
+                    { "enddate", lesson.EndDate.Add(lesson.EndTime).ToString()},
+                    {"starttime", lesson.StartTime.ToString() },
+                    {"endtime", lesson.EndTime.ToString() },
                     { "amount", lesson.Amount },
                     { "userId",Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid },
-
-                    //{"studentname", lesson.StudentName },
-                    //{"teachername",lesson.TeacherName },
-                    //{"instrument", lesson.Instrument },
-                    //{"startdate", lesson.StartDate.Date.ToString() },
-                    //{"enddate" , lesson.EndDate.Date.ToString()},
-                    //{"from", lesson.StartDate.Date.TimeOfDay.ToString() },
-                    //{"to", lesson.EndDate.Date.TimeOfDay.ToString() },
-                    //{"amount", lesson.Amount },
-                    //{ "userId",Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid },
 
                 };
 

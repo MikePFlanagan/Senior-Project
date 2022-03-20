@@ -49,7 +49,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString("leadsource"),
                     new NSString("notes"),
                     new NSString("userId")
-    };
+                };
+
                 var values = new NSObject[]
                 {
                     new NSString(student.Name),
@@ -67,8 +68,14 @@ namespace MusicAcademyCRM.iOS.Dependencies
 
                 var document = new NSDictionary<NSString, NSObject>(keys, values);
 
+                foreach (var item in document)
+                {
+                    if (item.Value.IsEqual(null))
+                        item.Value.Equals("");
+                }
                 var collection = Firebase.CloudFirestore.Firestore.SharedInstance.GetCollection("students");
                 collection.AddDocument(document);
+                
                 return true;
             }
             catch (Exception ex)
@@ -76,6 +83,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                 return false;
             }
         }
+
+                
 
         public async Task<List<Student>> Read()
         {
