@@ -16,6 +16,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
     {
         public Firestore()
         {
+
         }
 
         public async Task<bool> Delete(Student student)
@@ -45,7 +46,6 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString("city"),
                     new NSString("state"),
                     new NSString("zipcode"),
-                    new NSString("company"),
                     new NSString("leadsource"),
                     new NSString("notes"),
                     new NSString("userId")
@@ -60,7 +60,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(student.City),
                     new NSString(student.State),
                     new NSString(student.Zipcode),
-                    new NSString(student.Company),
+                   
                     new NSString(student.Leadsource),
                     new NSString(student.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
@@ -68,11 +68,11 @@ namespace MusicAcademyCRM.iOS.Dependencies
 
                 var document = new NSDictionary<NSString, NSObject>(keys, values);
 
-                foreach (var item in document)
-                {
-                    if (item.Value.IsEqual(null))
-                        item.Value.Equals("");
-                }
+                //foreach (var item in document)
+                //{
+                //    if (item.Value.IsEqual(null))
+                //        item.Value.Equals("");
+                //}
                 var collection = Firebase.CloudFirestore.Firestore.SharedInstance.GetCollection("students");
                 collection.AddDocument(document);
                 
@@ -107,8 +107,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     Address = dictionary.ValueForKey(new NSString("address")) as NSString,
                     City = dictionary.ValueForKey(new NSString("city")) as NSString,
                     State = dictionary.ValueForKey(new NSString("state")) as NSString,
-                    Zipcode = dictionary.ValueForKey(new NSString("zipcode")) as NSString,
-                    Company = dictionary.ValueForKey(new NSString("company")) as NSString,
+                    Zipcode = dictionary.ValueForKey(new NSString("zipcode")) as NSString,                 
                     Leadsource = dictionary.ValueForKey(new NSString("leadsource")) as NSString,
                     Notes = dictionary.ValueForKey(new NSString("notes")) as NSString,
                     UserId = dictionary.ValueForKey(new NSString("userId")) as NSString,
@@ -137,8 +136,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString("address"),
                     new NSString("city"),
                     new NSString("state"),
-                    new NSString("zipcode"),
-                    new NSString("company"),
+                    new NSString("zipcode"),                 
                     new NSString("leadsource"),
                     new NSString("notes"),
                     new NSString("userId")
@@ -152,8 +150,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(student.Address),
                     new NSString(student.City),
                     new NSString(student.State),
-                    new NSString(student.Zipcode),
-                    new NSString(student.Company),
+                    new NSString(student.Zipcode),                 
                     new NSString(student.Leadsource),
                     new NSString(student.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
