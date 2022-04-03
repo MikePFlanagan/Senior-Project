@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MusicAcademyCRM;assembly=MusicAcademyCRM"
              mc:Ignorable="d"
              x:Class="MusicAcademyCRM.HomePage"
-             BackgroundColor="Maroon">
+             BackgroundColor="{StaticResource canvasbackgroundColor}">
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text ="Add Student"

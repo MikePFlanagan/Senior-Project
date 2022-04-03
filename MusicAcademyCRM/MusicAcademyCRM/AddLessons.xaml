@@ -7,7 +7,7 @@
           
              x:Class="MusicAcademyCRM.AddLessons"             
              mc:Ignorable="d"
-             BackgroundColor="{StaticResource blackColor}">
+             BackgroundColor="{StaticResource canvasbackgroundColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
@@ -17,73 +17,73 @@
 
         <ContentPage.Content>
             <ScrollView>
-            <StackLayout
-            Margin="20">
+            <StackLayout Margin="20,-1,20,-1">
                 <Label Text="Student Name:"
-                       TextColor="{StaticResource maroonColor}"/>
+                       TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="studentNameEntry"                   
                    Margin="1,-6"
                    Keyboard="Default"
-                   Placeholder="New Students Name"
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                   Placeholder="Students Name"
+                   
+                        PlaceholderColor="{StaticResource textColor}"
+                        TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Teacher Name:"
-                       TextColor="{StaticResource maroonColor}"/>
+                       TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="teacherNameEntry"                   
                    Margin="1,-6"
                    Keyboard="Default"
-                   Placeholder="New Student's Teachers Name"
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                   Placeholder="Teachers Name" 
+                   PlaceholderColor="{StaticResource placeholderColor}"
+                   TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Instrument:"
-                       TextColor="{StaticResource maroonColor}"/>
+                       TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="instrumentEntry"                   
                    Margin="1,-6"
                    Keyboard="Default"
-                   Placeholder="New Student's instrument"
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                   Placeholder="Student's instrument"
+                   
+                        PlaceholderColor="{StaticResource textColor}"
+                        TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Amount:"
-                   TextColor="{StaticResource maroonColor}"/>
+                   TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="amountEntry"                       
                    Margin="1,-6"
                    Keyboard="Default" 
                    Placeholder="$30.00"
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                   
+                        PlaceholderColor="{StaticResource textColor}"
+                        TextColor="{StaticResource textColor}"/>
 
                  <Label Text="Lesson Date:"
-                      TextColor="{StaticResource maroonColor}"/>
+                      TextColor="{StaticResource labelColor}"/>
                 <DatePicker x:Name="startDatePicker"
                     Date="{Binding StartDate, Mode=OneWayToSource}" 
-                              BackgroundColor="{StaticResource blackColor}"
+                             
                   
-                   TextColor="{StaticResource whiteColor}"
+                   TextColor="{StaticResource textColor}"
                             MinimumDate="{x:Static sys:DateTime.Now}"
                             MaximumDate="2050/01/01"/>
 
                 <Label Text="Select the Lesson Start Time"
-                    TextColor="{StaticResource maroonColor}"/>
+                    TextColor="{StaticResource labelColor}"/>
                 <TimePicker x:Name="startTimePicker"
-                       BackgroundColor="{StaticResource blackColor}"
-                 
-                   TextColor="{StaticResource whiteColor}"                  
+                                       
+                        TextColor="{StaticResource textColor}"                 
                     Format = "h:mm tt"
                     Time="{Binding StartTime, Mode=OneWayToSource}" />
 
                 <Label Text="Select the Lesson End Time"
-                   TextColor="{StaticResource maroonColor}"/>
+                   TextColor="{StaticResource labelColor}"/>
                 <TimePicker x:Name="endTimePicker"
-                    TextColor="{StaticResource whiteColor}"
+                   
+                    TextColor="{StaticResource textColor}"
                     Format = "h:mm tt"
-                    Time="{Binding EndTime, Mode=OneWayToSource}" />
+                    Time="{Binding EndTime, Mode=OneWayToSource}"
+                     
+                           />
 
                 <!--<Entry x:Name="fromEntry"
                    Placeholder="Start Time"

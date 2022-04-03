@@ -61,7 +61,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(student.State),
                     new NSString(student.Zipcode),
                    
-                    new NSString(student.Leadsource),
+                    new NSString(student.Instruments),
                     new NSString(student.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
                 };
@@ -108,7 +108,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     City = dictionary.ValueForKey(new NSString("city")) as NSString,
                     State = dictionary.ValueForKey(new NSString("state")) as NSString,
                     Zipcode = dictionary.ValueForKey(new NSString("zipcode")) as NSString,                 
-                    Leadsource = dictionary.ValueForKey(new NSString("leadsource")) as NSString,
+                    Instruments = dictionary.ValueForKey(new NSString("leadsource")) as NSString,
                     Notes = dictionary.ValueForKey(new NSString("notes")) as NSString,
                     UserId = dictionary.ValueForKey(new NSString("userId")) as NSString,
                     Id = doc.Id
@@ -151,7 +151,7 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(student.City),
                     new NSString(student.State),
                     new NSString(student.Zipcode),                 
-                    new NSString(student.Leadsource),
+                    new NSString(student.Instruments),
                     new NSString(student.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
                 };

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MusicAcademyCRM.RegisterPage"
-             BackgroundColor="Maroon">
+             BackgroundColor="{StaticResource canvasbackgroundColor}">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center"
                      Margin="20">
@@ -16,26 +16,32 @@
             VerticalOptions="EndAndExpand"
                Margin="0,0,0,80"
            />
-
+            <Label Text="Email:"
+                        TextColor="{StaticResource labelColor}"/>
             <Entry x:Name="emailEntry"
                    Placeholder="Email Address"
                    Keyboard="Email" 
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                   BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
+                        TextColor="{StaticResource textColor}"/>
 
+            <Label Text="Password:"
+                        TextColor="{StaticResource labelColor}"/>
             <Entry x:Name="passwordEntry"
                    Placeholder="Password"
                    IsPassword="True" 
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
+                        TextColor="{StaticResource textColor}"/>
+            
+            <Label Text="Confirm Password:"
+                        TextColor="{StaticResource labelColor}"/>
             <Entry x:Name="comfirmPasswordEntry"
                    Placeholder="Confirm Password"
                    IsPassword="True" 
-                   BackgroundColor="{StaticResource blackColor}"
-                   PlaceholderColor="{StaticResource whiteColor}"
-                   TextColor="{StaticResource whiteColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
+                        TextColor="{StaticResource textColor}"/>
 
             
 

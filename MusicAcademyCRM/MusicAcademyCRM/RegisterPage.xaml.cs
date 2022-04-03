@@ -25,8 +25,7 @@ namespace MusicAcademyCRM
 
         private async void registerButton_Clicked(object sender, EventArgs e)
         {
-            if (passwordEntry.Text == comfirmPasswordEntry.Text){
-                
+                if (passwordEntry.Text == comfirmPasswordEntry.Text){                
                 Users user = new Users()
                 {
                     Email = emailEntry.Text,

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicAcademyCRM.Android", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicAcademyCRM.iOS", "MusicAcademyCRM\MusicAcademyCRM.iOS\MusicAcademyCRM.iOS.csproj", "{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicAcademyCRM", "MusicAcademyCRM\MusicAcademyCRM\MusicAcademyCRM.csproj", "{A17CE5A4-9157-49B7-B605-AF0C6ABF16BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicAcademyCRM", "MusicAcademyCRM\MusicAcademyCRM\MusicAcademyCRM.csproj", "{A17CE5A4-9157-49B7-B605-AF0C6ABF16BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,9 +105,9 @@ Global
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|ARM.ActiveCfg = Debug|iPhoneSimulator
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|ARM.Build.0 = Debug|iPhoneSimulator
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|ARM.Deploy.0 = Debug|iPhoneSimulator
-		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.Build.0 = Debug|iPhone
-		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.Deploy.0 = Debug|iPhone
+		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.ActiveCfg = Debug|iPhoneSimulator
+		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.Build.0 = Debug|iPhoneSimulator
+		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhone.Deploy.0 = Debug|iPhoneSimulator
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{E1BB6DD1-E431-4027-9C5B-8DDF3AB7D480}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator

@@ -27,8 +27,8 @@ namespace MusicAcademyCRM
             cityEntry.Text = selectedTeacher.City;
             stateEntry.Text = selectedTeacher.State;
             zipcodeEntry.Text = selectedTeacher.Zipcode;
-            companyEntry.Text = selectedTeacher.Company;
-            leadsourceEntry.Text = selectedTeacher.Leadsource;
+            availabilityEntry.Text = selectedTeacher.Availability;
+            instrumentsEntry.Text = selectedTeacher.Instruments;
             notesEntry.Text = selectedTeacher.Notes;
         }
 
@@ -36,65 +36,84 @@ namespace MusicAcademyCRM
 
         async void UpdateButton_Clicked(object sender, EventArgs e)
         {
-            selectedTeacher.Name = nameEntry.Text;
-            selectedTeacher.Phone = phoneEntry.Text;
-            selectedTeacher.Email = emailEntry.Text;
-            selectedTeacher.Address = addressEntry.Text;
-            selectedTeacher.City = cityEntry.Text;
-            selectedTeacher.Zipcode = zipcodeEntry.Text;
-            selectedTeacher.Company = companyEntry.Text;
-            selectedTeacher.Leadsource = leadsourceEntry.Text;
-            selectedTeacher.Notes = notesEntry.Text;
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text) &&
+                !string.IsNullOrWhiteSpace(phoneEntry.Text) &&
+                !string.IsNullOrWhiteSpace(emailEntry.Text) &&
+                !string.IsNullOrWhiteSpace(addressEntry.Text) &&
+                !string.IsNullOrWhiteSpace(cityEntry.Text) &&
+                !string.IsNullOrWhiteSpace(stateEntry.Text) &&
+                !string.IsNullOrWhiteSpace(zipcodeEntry.Text) &&
 
-            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            //{
-
-            //    conn.CreateTable<Teacher>();
-
-            //    int rows = conn.Update(selectedTeacher);
-
-            //    if (rows > 0)
-            //        DisplayAlert("Success", "Name Successfully Updated", "OK");
-            //    else
-            //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
-            //}
-
-            bool result = await TeacherFirestore.Update(selectedTeacher);
-            if (result)
+                !string.IsNullOrWhiteSpace(availabilityEntry.Text) &&
+                !string.IsNullOrWhiteSpace(instrumentsEntry.Text))
+            //&& !string.IsNullOrWhiteSpace(notesEntry.Text))
             {
-                DisplayAlert("Success", "Teacher Successfully Updated", "OK");
-                Navigation.PopAsync();
+                selectedTeacher.Name = nameEntry.Text;
+                selectedTeacher.Phone = phoneEntry.Text;
+                selectedTeacher.Email = emailEntry.Text;
+                selectedTeacher.Address = addressEntry.Text;
+                selectedTeacher.City = cityEntry.Text;
+                selectedTeacher.Zipcode = zipcodeEntry.Text;
+                selectedTeacher.Availability = availabilityEntry.Text;
+                selectedTeacher.Instruments = instrumentsEntry.Text;
+                selectedTeacher.Notes = notesEntry.Text;
+
+                //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                //{
+
+                //    conn.CreateTable<Teacher>();
+
+                //    int rows = conn.Update(selectedTeacher);
+
+                //    if (rows > 0)
+                //        DisplayAlert("Success", "Name Successfully Updated", "OK");
+                //    else
+                //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+                //}
+
+                bool result = await TeacherFirestore.Update(selectedTeacher);
+                if (result)
+                {
+                    DisplayAlert("Success", "Teacher Successfully Updated", "OK");
+                    Navigation.PopAsync();
+                }
+                else
+                    DisplayAlert("Failure", "Teacher Failed to be Updated", "OK");
             }
             else
-                DisplayAlert("Failure", "Teacher Failed to be Updated", "OK");
+            {
+                DisplayAlert("Alert", "Input is not valid. All fields except Notes are required to be filled in.", "OK");
+            }
         }
+    
 
 
-        async void DeleteButton_Clicked(object sender, EventArgs e)
-        {
-            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            //{
-
-            //    conn.CreateTable<Student>();
-
-            //    int rows = conn.Delete(selectedStudent);
-
-
-            //    if (rows > 0)
-            //        DisplayAlert("Success", "Name Successfully Deleted", "OK");
-            //    else
-            //        DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
-            //}
-
-            bool result = await TeacherFirestore.Delete(selectedTeacher);
-            if (result)
+            async void DeleteButton_Clicked(object sender, EventArgs e)
             {
-                DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
-                Navigation.PopAsync();
+                //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                //{
+
+                //    conn.CreateTable<Student>();
+
+                //    int rows = conn.Delete(selectedStudent);
+
+
+                //    if (rows > 0)
+                //        DisplayAlert("Success", "Name Successfully Deleted", "OK");
+                //    else
+                //        DisplayAlert("Failure", "Name Failed to be Deleted", "OK");
+                //}
+
+                bool result = await TeacherFirestore.Delete(selectedTeacher);
+                if (result)
+                {
+                    DisplayAlert("Success", "Teacher Successfully Deleted", "OK");
+                    Navigation.PopAsync();
+                }
+                else
+                    DisplayAlert("Failure", "Teacher Failed to be Deleted", "OK");
             }
-            else
-                DisplayAlert("Failure", "Teacher Failed to be Deleted", "OK");
         }
     }
-}
+
     

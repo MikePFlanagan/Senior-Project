@@ -16,8 +16,8 @@ namespace MusicAcademyCRM.Model
         public string City { get; set; }     
         public string State { get; set; }        
         public string Zipcode { get; set; }       
-        public string Company { get; set; }        
-        public string Leadsource { get; set; }     
+        public string Availability { get; set; }
+        public string Instruments { get; set; }
         public string Notes { get; set; }
         public string UserId { get; set; }
     }

@@ -17,7 +17,7 @@ namespace MusicAcademyCRM
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddLessons : ContentPage
     {
-        
+
         public AddLessons()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace MusicAcademyCRM
             endTimePicker.Time = DateTime.Now.TimeOfDay;
         }
 
-   
+
 
         //void OnDateSelected(object sender, DateChangedEventArgs args)
         //{
@@ -44,57 +44,113 @@ namespace MusicAcademyCRM
 
         private void ToolBarItem_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                Lesson newLesson = new Lesson()
-                {
-                    StudentName = studentNameEntry.Text,
-                    TeacherName = teacherNameEntry.Text,
-                    Instrument = instrumentEntry.Text,
-                    StartDate = startDatePicker.Date,
-                    StartTime = startDatePicker.Date.Add(startTimePicker.Time).TimeOfDay,
-                    EndDate = startDatePicker.Date,
-                    EndTime = endTimePicker.Time,
-                    Amount = amountEntry.Text
-                    
-                };
-               
-           
-
-                    //using (var conn = new SQLiteConnection(App.DatabaseLocation))
-                    //{
-                    //    conn.CreateTable<Student>();
-
-                    //    int rowsAffected = conn.Insert(student);
-
-                    bool result = LessonFirestore.Insert(newLesson);
-                if (result)
+            Lesson newLesson;
+            if (!string.IsNullOrWhiteSpace(studentNameEntry.Text) && !string.IsNullOrWhiteSpace(teacherNameEntry.Text) && !string.IsNullOrWhiteSpace(instrumentEntry.Text) && !string.IsNullOrWhiteSpace(amountEntry.Text))
+                try
                 {
 
-                    studentNameEntry.Text = string.Empty;
-                    teacherNameEntry.Text = string.Empty;
-                    instrumentEntry.Text = string.Empty;
-                    startDatePicker.Date = startDatePicker.Date;
-                    startTimePicker.Time = DateTime.Now.TimeOfDay;                   
-                    endTimePicker.Time = DateTime.Now.TimeOfDay;
-                    //StartTimeEntry.Text = string.Empty;
-                    //EndTimeEntry.Text = string.Empty;
-                    amountEntry.Text = string.Empty;
+                    {
+                        newLesson = new Lesson()
+                        {
+                            StudentName = studentNameEntry.Text,
+                            TeacherName = teacherNameEntry.Text,
+                            Instrument = instrumentEntry.Text,
+                            StartDate = startDatePicker.Date,
+                            StartTime = startDatePicker.Date.Add(startTimePicker.Time).TimeOfDay,
+                            EndDate = startDatePicker.Date,
+                            EndTime = endTimePicker.Time,
+                            Amount = amountEntry.Text
+                        };
 
-                    DisplayAlert("Success", "Lesson Successfully Saved", "OK");
+                        bool result = LessonFirestore.Insert(newLesson);
+                        if (result)
+                        {
+
+                            studentNameEntry.Text = string.Empty;
+                            teacherNameEntry.Text = string.Empty;
+                            instrumentEntry.Text = string.Empty;
+                            startDatePicker.Date = startDatePicker.Date;
+                            startTimePicker.Time = DateTime.Now.TimeOfDay;
+                            endTimePicker.Time = DateTime.Now.TimeOfDay;
+                            //StartTimeEntry.Text = string.Empty;
+                            //EndTimeEntry.Text = string.Empty;
+                            amountEntry.Text = string.Empty;
+
+                            DisplayAlert("Success", "Lesson Successfully Saved", "OK");
+                        }
+                        else
+                            DisplayAlert("Failure", "Lesson Failed to be Saved", "OK");
+                    }
+
                 }
-                else
-                    DisplayAlert("Failure", "Lesson Failed to be Saved", "OK");
-            }
-            catch (NullReferenceException nrex) 
-            { 
+                catch (NullReferenceException nrex)
+                {
 
-            }
-            catch (Exception ex)
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+
+
+
+
+            else
             {
-            
+                DisplayAlert("Alert", "Input is not valid", "OK");
             }
+            //Lesson newLesson = new Lesson()
+            //{
+            //    StudentName = studentNameEntry.Text,
+            //    TeacherName = teacherNameEntry.Text,
+            //    Instrument = instrumentEntry.Text,
+            //    StartDate = startDatePicker.Date,
+            //    StartTime = startDatePicker.Date.Add(startTimePicker.Time).TimeOfDay,
+            //    EndDate = startDatePicker.Date,
+            //    EndTime = endTimePicker.Time,
+            //    Amount = amountEntry.Text
 
+            //};
+
+
+
+            //using (var conn = new SQLiteConnection(App.DatabaseLocation))
+            //{
+            //    conn.CreateTable<Student>();
+
+            //    int rowsAffected = conn.Insert(student);
+
+            //                bool result = LessonFirestore.Insert(newLesson);
+            //            if (result)
+            //            {
+
+            //                studentNameEntry.Text = string.Empty;
+            //                teacherNameEntry.Text = string.Empty;
+            //                instrumentEntry.Text = string.Empty;
+            //                startDatePicker.Date = startDatePicker.Date;
+            //                startTimePicker.Time = DateTime.Now.TimeOfDay;                   
+            //                endTimePicker.Time = DateTime.Now.TimeOfDay;
+            //                //StartTimeEntry.Text = string.Empty;
+            //                //EndTimeEntry.Text = string.Empty;
+            //                amountEntry.Text = string.Empty;
+
+            //                DisplayAlert("Success", "Lesson Successfully Saved", "OK");
+            //            }
+            //            else
+            //                DisplayAlert("Failure", "Lesson Failed to be Saved", "OK");
+            //        }
+            //        catch (NullReferenceException nrex) 
+            //        { 
+
+            //        }
+            //        catch (Exception ex)
+            //        {
+
+            //        }
+
+            //    }
+            //}
         }
     }
 }

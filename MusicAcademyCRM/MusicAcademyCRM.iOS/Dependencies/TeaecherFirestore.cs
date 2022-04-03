@@ -59,8 +59,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(teacher.City),
                     new NSString(teacher.State),
                     new NSString(teacher.Zipcode),
-                    new NSString(teacher.Company),
-                    new NSString(teacher.Leadsource),
+                    new NSString(teacher.Availability),
+                    new NSString(teacher.Instruments),
                     new NSString(teacher.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
                 };
@@ -100,8 +100,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     City = dictionary.ValueForKey(new NSString("city")) as NSString,
                     State = dictionary.ValueForKey(new NSString("state")) as NSString,
                     Zipcode = dictionary.ValueForKey(new NSString("zipcode")) as NSString,
-                    Company = dictionary.ValueForKey(new NSString("company")) as NSString,
-                    Leadsource = dictionary.ValueForKey(new NSString("leadsource")) as NSString,
+                    Availability = dictionary.ValueForKey(new NSString("company")) as NSString,
+                    Instruments = dictionary.ValueForKey(new NSString("leadsource")) as NSString,
                     Notes = dictionary.ValueForKey(new NSString("notes")) as NSString,
                     UserId = dictionary.ValueForKey(new NSString("userId")) as NSString,
                     Id = doc.Id
@@ -144,8 +144,8 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(teacher.City),
                     new NSString(teacher.State),
                     new NSString(teacher.Zipcode),
-                    new NSString(teacher.Company),
-                    new NSString(teacher.Leadsource),
+                    new NSString(teacher.Availability),
+                    new NSString(teacher.Instruments),
                     new NSString(teacher.Notes),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
                 };

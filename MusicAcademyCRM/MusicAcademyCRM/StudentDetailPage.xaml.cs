@@ -28,51 +28,66 @@ namespace MusicAcademyCRM
             cityEntry.Text = selectedStudent.City;
             stateEntry.Text = selectedStudent.State;
             zipcodeEntry.Text = selectedStudent.Zipcode;
-            companyEntry.Text = selectedStudent.Company;
-            leadsourceEntry.Text = selectedStudent.Leadsource;
+            instrumentsEntry.Text = selectedStudent.Instruments;
+            leadsourceEntry.Text = selectedStudent.Instruments;
             notesEntry.Text = selectedStudent.Notes;
         }
 
-
-
         async void UpdateButton_Clicked(object sender, EventArgs e)
         {
-            selectedStudent.Name = nameEntry.Text;
-            selectedStudent.Phone = phoneEntry.Text;
-            selectedStudent.Email = emailEntry.Text;
-            selectedStudent.Address = addressEntry.Text;
-            selectedStudent.City = cityEntry.Text;
-            selectedStudent.State = stateEntry.Text;
-            selectedStudent.Zipcode = zipcodeEntry.Text;
-            selectedStudent.Company = companyEntry.Text;
-            selectedStudent.Leadsource = leadsourceEntry.Text;
-            selectedStudent.Notes = notesEntry.Text;
-           
-            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            //{
-
-            //    conn.CreateTable<Student>();
-
-            //    int rows = conn.Update(selectedStudent);
-
-            //    if (rows > 0)
-            //        DisplayAlert("Success", "Name Successfully Updated", "OK");
-            //    else
-            //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
-            //}
-
-            bool result = await Firestore.Update(selectedStudent);
-            if (result)
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text) &&
+                !string.IsNullOrWhiteSpace(phoneEntry.Text) &&
+                !string.IsNullOrWhiteSpace(emailEntry.Text) &&
+                !string.IsNullOrWhiteSpace(addressEntry.Text) &&
+                !string.IsNullOrWhiteSpace(cityEntry.Text) &&
+                !string.IsNullOrWhiteSpace(stateEntry.Text) &&
+                !string.IsNullOrWhiteSpace(zipcodeEntry.Text) &&
+                !string.IsNullOrWhiteSpace(instrumentsEntry.Text) &&
+                !string.IsNullOrWhiteSpace(leadsourceEntry.Text))
+                //&& !string.IsNullOrWhiteSpace(notesEntry.Text))
             {
-                await DisplayAlert("Success", "Student Successfully Updated", "OK");
-                await Navigation.PopAsync();
+                selectedStudent.Name = nameEntry.Text;
+                selectedStudent.Phone = phoneEntry.Text;
+                selectedStudent.Email = emailEntry.Text;
+                selectedStudent.Address = addressEntry.Text;
+                selectedStudent.City = cityEntry.Text;
+                selectedStudent.State = stateEntry.Text;
+                selectedStudent.Zipcode = zipcodeEntry.Text;
+                selectedStudent.Instruments = instrumentsEntry.Text;
+                selectedStudent.LeadSource = leadsourceEntry.Text;
+                selectedStudent.Notes = notesEntry.Text;
+
+                //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                //{
+
+                //    conn.CreateTable<Student>();
+
+                //    int rows = conn.Update(selectedStudent);
+
+                //    if (rows > 0)
+                //        DisplayAlert("Success", "Name Successfully Updated", "OK");
+                //    else
+                //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+                //}
+
+                bool result = await Firestore.Update(selectedStudent);
+                if (result)
+                {
+                    await DisplayAlert("Success", "Student Successfully Updated", "OK");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Failure", "Student Failed to be Updated", "OK");
+                    await Navigation.PopAsync();
+                }
             }
             else
             {
-                await DisplayAlert("Failure", "Student Failed to be Updated", "OK");
-                await Navigation.PopAsync();
+                DisplayAlert("Alert", "Input is not valid. All fields except Notes are required to be filled in.", "OK");
             }
         }
+        
 
 
 

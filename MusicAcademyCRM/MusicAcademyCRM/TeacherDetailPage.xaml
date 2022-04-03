@@ -5,100 +5,100 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MusicAcademyCRM.TeacherDetailPage"
-            BackgroundColor="Maroon">
+            BackgroundColor="{StaticResource canvasbackgroundColor}">
     <ContentPage.Content>
         <ScrollView>
-       
-                <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="20,-1,20,-1">
+                <Label Text="Teacher Name:"
+                        TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="nameEntry"
+                  
+                   Keyboard="Default"                 
+                    
+                   TextColor="{StaticResource textColor}"/>
 
-
-                    <Entry x:Name="nameEntry"
-                   Placeholder="Name"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-
-
+                <Label Text="Phone:"
+                    TextColor="{StaticResource labelColor}"/>
                     <Entry x:Name="phoneEntry"
-                   Placeholder="Phone"
+                  
                    Margin="1,-6"
-                   Keyboard="Telephone"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="emailEntry"
-                   Placeholder="Email"
-                   Margin="1,-6"
-                   Keyboard="Email"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
+                   Keyboard="Telephone"                  
+                   TextColor="{StaticResource textColor}"/>
 
-                    <Entry x:Name="addressEntry"
-                   Placeholder="Address"
+                <Label Text="Email:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="emailEntry"
+                  
+                   Margin="1,-6"
+                   Keyboard="Email"              
+                   TextColor="{StaticResource textColor}"/>
+
+                <Label Text="Address:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="addressEntry"
+                 
+                   Margin="1,-6"
+                   Keyboard="Default"                
+                   TextColor="{StaticResource textColor}"/>
+
+                <Label Text="City:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="cityEntry"
+                
                    Margin="1,-6"
                    Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="cityEntry"
-                   Placeholder="City"
+                   PlaceholderColor="{StaticResource textColor}"
+                   TextColor="{StaticResource textColor}"/>
+
+                <Label Text="State:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="stateEntry"
+                
                    Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="stateEntry"
-                   Placeholder="State"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="zipcodeEntry"
-                   Placeholder="Zipcode"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="companyEntry"
-                   Placeholder="Company"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry x:Name="leadsourceEntry"
-                   Placeholder="Lead Source"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
-                    <Entry  x:Name="notesEntry"
-                    Placeholder="Notes"
-                   Margin="1,-6"
-                   Keyboard="Default"
-                   BackgroundColor="{StaticResource whiteColor}"
-                   PlaceholderColor="{StaticResource blackColor}"
-                   TextColor="{StaticResource blackColor}"/>
+                   Keyboard="Default"              
+                   TextColor="{StaticResource textColor}"/>
+
+                <Label Text="Zip:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="zipcodeEntry"                 
+                   Margin="-1"
+                   Keyboard="Default"                 
+                   TextColor="{StaticResource textColor}"/>
+
+                <Label Text="Availability:"
+                    TextColor="{StaticResource labelColor}"/>                    
+                <Entry x:Name="availabilityEntry"                                  
+                   Keyboard="Default"                 
+                   TextColor="{StaticResource textColor}"/>
+                    
+
+                <Label Text="Instruments:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry x:Name="instrumentsEntry"                                    
+                    Keyboard="Default"                 
+                    TextColor="{StaticResource textColor}"/>
+                    
+
+                <Label Text="Notes:"
+                    TextColor="{StaticResource labelColor}"/>
+                <Entry  x:Name="notesEntry"                
+                    Keyboard="Default"                 
+                    TextColor="{StaticResource textColor}"/>
 
 
                     <Button Margin="20,1"
                 Text="Update"
                     x:Name="UpdateButton"
                     Clicked="UpdateButton_Clicked"
-                    BackgroundColor="Black"
-                    TextColor="White"/>
+                    BackgroundColor="{StaticResource buttonbackgroundColor}"
+                    TextColor="{StaticResource buttontextColor}"/>
+                    
                     <Button Margin="20,1"
                 Text="Delete"
                     x:Name="DeleteButton"
                     Clicked="DeleteButton_Clicked"
-                    BackgroundColor="Black"
-                    TextColor="White"/>
+                    BackgroundColor="{StaticResource buttonbackgroundColor}"
+                    TextColor="{StaticResource buttontextColor}"/>
 
                 </StackLayout>
         </ScrollView>

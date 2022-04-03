@@ -12,6 +12,16 @@
             <Color x:Key="whiteColor">#ffffff</Color>
             <Color x:Key="blackColor">#000000</Color>
 
+            <Color x:Key="labelColor">#000000</Color>
+            <Color x:Key="textColor">#ffffff</Color>
+            <Color x:Key="backgroundColor">#800000</Color>
+            <Color x:Key="canvasbackgroundColor">#800000</Color>
+            <Color x:Key="detailColor">#000000</Color>
+            <Color x:Key="placeholderColor">#ffffff</Color>
+            <Color x:Key="buttonbackgroundColor">#000000</Color>
+            <Color x:Key="buttontextColor">#ffffff</Color>
+           
+            
             
         </ResourceDictionary>
     </Application.Resources>

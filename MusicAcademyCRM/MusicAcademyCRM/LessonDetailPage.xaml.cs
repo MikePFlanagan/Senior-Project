@@ -34,50 +34,49 @@ namespace MusicAcademyCRM
 
         async void UpdateButton_Clicked(object sender, EventArgs e)
         {
-            selectedLesson.StudentName = studentNameEntry.Text;
-            selectedLesson.TeacherName = teacherNameEntry.Text;
-            selectedLesson.Instrument = instrumentEntry.Text;
-            selectedLesson.StartDate = startDatePicker.Date;
-            selectedLesson.StartTime = startTimePicker.Time;
-            //selectedLesson.EndDate = endDatePicker.Date;
-             
-            selectedLesson.EndTime = endTimePicker.Time;
-            selectedLesson.Amount = amountEntry.Text;
-            //selectedLesson.Phone = phoneEntry.Text;
-            //selectedLesson.Email = emailEntry.Text;
-            //selectedLesson.Address = addressEntry.Text;
-            //selectedLesson.City = cityEntry.Text;
-            //selectedLesson.State = stateEntry.Text;
-            //selectedLesson.Zipcode = zipcodeEntry.Text;
-            //selectedLesson.Company = companyEntry.Text;
-            //selectedLesson.Leadsource = leadsourceEntry.Text;
-            //selectedLesson.Notes = notesEntry.Text;
-
-            //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            //{
-
-            //    conn.CreateTable<Lesson>();
-
-            //    int rows = conn.Update(selectedLesson);
-
-            //    if (rows > 0)
-            //        DisplayAlert("Success", "Name Successfully Updated", "OK");
-            //    else
-            //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
-            //}
-
-            bool result = await LessonFirestore.Update(selectedLesson);
-            if (result)
+            if (!string.IsNullOrWhiteSpace(studentNameEntry.Text) &&
+                !string.IsNullOrWhiteSpace(teacherNameEntry.Text) &&
+                !string.IsNullOrWhiteSpace(instrumentEntry.Text) &&
+                !string.IsNullOrWhiteSpace(amountEntry.Text))
             {
-                DisplayAlert("Success", "Lesson Successfully Updated", "OK");
-                Navigation.PopAsync();
+                selectedLesson.StudentName = studentNameEntry.Text;
+                selectedLesson.TeacherName = teacherNameEntry.Text;
+                selectedLesson.Instrument = instrumentEntry.Text;
+                selectedLesson.StartDate = startDatePicker.Date;
+                selectedLesson.StartTime = startTimePicker.Time;
+                selectedLesson.EndTime = endTimePicker.Time;
+                selectedLesson.Amount = amountEntry.Text;
+
+
+                //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                //{
+
+                //    conn.CreateTable<Lesson>();
+
+                //    int rows = conn.Update(selectedLesson);
+
+                //    if (rows > 0)
+                //        DisplayAlert("Success", "Name Successfully Updated", "OK");
+                //    else
+                //        DisplayAlert("Failure", "Name Failed to be Updated", "OK");
+                //}
+
+                bool result = await LessonFirestore.Update(selectedLesson);
+                if (result)
+                {
+                    DisplayAlert("Success", "Lesson Successfully Updated", "OK");
+                    Navigation.PopAsync();
+                }
+                else
+                    DisplayAlert("Failure", "Lesson Failed to be Updated", "OK");
             }
             else
-                DisplayAlert("Failure", "Lesson Failed to be Updated", "OK");
+            {
+                DisplayAlert("Alert", "Input is not valid. All fields are required to be filled in.", "OK");
+            }
         }
 
-
-        async void DeleteButton_Clicked(object sender, EventArgs e)
+    async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             //using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             //{

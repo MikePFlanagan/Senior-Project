@@ -7,19 +7,18 @@
              x:Class="MusicAcademyCRM.Lessons"
              BackgroundColor="Maroon">
 
-
-    <ListView x:Name="lessonListView"
-              BackgroundColor="{StaticResource blackColor}"
-              ItemSelected="lessonListView_OnItemSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Instrument, StringFormat= '{0} lesson on'}"
-                          TextColor="White"
-                          StyleId="disclosure"
-                          Detail="{Binding StartDate, StringFormat='{}{0:dddd a\\t h:mm tt,         o\\n MMMM dd yyyy}'}"
-                          DetailColor="{StaticResource maroonColor}" />                    
-                          
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        <ListView x:Name="lessonListView"
+            BackgroundColor="{StaticResource maroonColor}"
+            ItemSelected="lessonListView_OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Instrument, StringFormat= '{0} lesson'}"
+                        TextColor="{StaticResource textColor}"
+                        StyleId="disclosure"
+                        Detail="{Binding StartDate, StringFormat='{}{0:dddd a\\t h:mm tt, o\\n MMMM dd yyyy}'}"
+                        DetailColor="{StaticResource detailColor}" />                 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    
 </ContentPage>

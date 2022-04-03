@@ -56,8 +56,8 @@ namespace MusicAcademyCRM.Droid.Dependencies
                     { "city", student.City},
                     { "state", student.State},
                     { "zipcode", student.Zipcode},
-                    { "company", student.Company},
-                    { "leadsource", student.Leadsource},
+                
+                    { "leadsource", student.Instruments},
                     { "notes", student.Notes},
                     { "userId", Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid},
                 };
@@ -99,8 +99,8 @@ namespace MusicAcademyCRM.Droid.Dependencies
                             City = (string)item.Get("city"),
                             State = (string)item.Get("state"),
                             Zipcode = (string)item.Get("zipcode"),
-                            Company = (string)item.Get("company"),
-                            Leadsource = (string)item.Get("leadsource"),
+                         
+                            Instruments = (string)item.Get("leadsource"),
                             Notes = (string)item.Get("notes"),
                             UserId = (string)item.Get("userId"),
                             Id = item.Id, 
@@ -174,8 +174,8 @@ namespace MusicAcademyCRM.Droid.Dependencies
                     { "city", student.City },
                     { "state", student.State},
                     { "zipcode", student.Zipcode },
-                    { "company", student.Company},
-                    { "leadsource", student.Leadsource},
+              
+                    { "leadsource", student.Instruments},
                     { "notes", student.Notes },
                     { "userid", Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid },
                 };

@@ -7,19 +7,22 @@
              x:Class="MusicAcademyCRM.Students"
              BackgroundColor="Maroon">
 
-
-    <ListView x:Name="studentListView"
-              BackgroundColor="{StaticResource blackColor}"
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
+        <ListView x:Name="studentListView"
+              BackgroundColor="{StaticResource canvasbackgroundColor}"
               ItemSelected="StudentListView_OnItemSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                
-                <TextCell Text="{Binding Name}"
-                          
-                          TextColor="{StaticResource whiteColor}"/>
-            </DataTemplate>
-            
-        </ListView.ItemTemplate>
-    </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
 
+                    <TextCell Text="{Binding Name}"
+                          TextColor="{StaticResource textColor}"
+                          StyleId="disclosure"
+                          Detail="{Binding Instruments}"
+                          DetailColor="{StaticResource detailColor}" />
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

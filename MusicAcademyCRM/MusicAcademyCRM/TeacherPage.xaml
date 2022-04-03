@@ -5,16 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MusicAcademyCRM.Teachers"
-             BackgroundColor="Maroon">
+             BackgroundColor="{StaticResource canvasbackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="teacherListView"
-                      BackgroundColor="{StaticResource blackColor}"
+                      
                       ItemSelected="TeacherListView_OnItemSelected">
                 <ListView.ItemTemplate>                    
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}"                                 
-                                  TextColor="{StaticResource whiteColor}"/>
+                        <TextCell Text="{Binding Name}"
+                          TextColor="{StaticResource textColor}"
+                          StyleId="disclosure"
+                          Detail="{Binding Instruments}"
+                          DetailColor="{StaticResource detailColor}" />
                     </DataTemplate>
 
                 </ListView.ItemTemplate>
