@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -118,7 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicAcademyCRM\MusicAcademyCRM.csproj">
-      <Project>{1965CEC8-7243-4F46-91B3-E225FBD481FD}</Project>
+      <Project>{A17CE5A4-9157-49B7-B605-AF0C6ABF16BF}</Project>
       <Name>MusicAcademyCRM</Name>
     </ProjectReference>
   </ItemGroup>

@@ -23,53 +23,17 @@ namespace MusicAcademyCRM
             IconImage.Source = ImageSource.FromResource("MusicAcademyCRM.Assets.Images.pma.jpeg", assembly);
         }
 
-       
-        private async void LoginButton_Clicked(object sender, EventArgs e)
-        {
-           bool isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
-           bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
-
-           if (isEmailEmpty || isPasswordEmpty)
-           {
-
-           }
-           else
-           {
-                // authenticate
-                bool result = await Auth.LoginUser(EmailEntry.Text, PasswordEntry.Text);
-
-                if(result)
-                await Navigation.PushAsync(new HomePage());
-           }
-        }
 
         //private async void LoginButton_Clicked(object sender, EventArgs e)
         //{
         //   bool isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
         //   bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
-        //    bool isValidEmail = EmailEntry.Text.Contains("@");
-        //    int passwordCharCount = PasswordEntry.Text.Count();
-        //    bool isValidPasswordCount;
-        //    if (passwordCharCount >= 6)
-        //        isValidPasswordCount = true;
 
-        //   if (isEmailEmpty)
+        //   if (isEmailEmpty || isPasswordEmpty)
         //   {
 
-        //        await App.Current.MainPage.DisplayAlert("Failure", "Please fill in the email address field", "OK");
-        //    }else if (isPasswordEmpty)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Failure", "Please fill in the password field", "OK");
-        //    }
-        //    else if (!isValidEmail)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Failure", "Please use a fully qualified email address(must include @ symbol)", "OK");
-        //    }
-        //    else if (passwordCharCount < 6)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Failure", "Please make sure your Password is at least 6 characters", "OK");
-        //    }
-        //    else
+        //   }
+        //   else
         //   {
         //        // authenticate
         //        bool result = await Auth.LoginUser(EmailEntry.Text, PasswordEntry.Text);
@@ -77,12 +41,51 @@ namespace MusicAcademyCRM
         //        if(result)
         //        await Navigation.PushAsync(new HomePage());
         //   }
+        //}
 
-        private void RegisterUserButton_OnClicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-           
-            
-            Navigation.PushAsync(new RegisterPage());
+            bool isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
+            bool isValidEmail = EmailEntry.Text.Contains("@");
+            int passwordCharCount = PasswordEntry.Text.Count();
+            bool isValidPasswordCount;
+            if (passwordCharCount >= 6)
+                isValidPasswordCount = true;
+
+            if (isEmailEmpty)
+            {
+
+                await App.Current.MainPage.DisplayAlert("Failure", "Please fill in the email address field", "OK");
+            }
+            else if (isPasswordEmpty)
+            {
+                await App.Current.MainPage.DisplayAlert("Failure", "Please fill in the password field", "OK");
+            }
+            else if (!isValidEmail)
+            {
+                await App.Current.MainPage.DisplayAlert("Failure", "Please use a fully qualified email address(must include @ symbol)", "OK");
+            }
+            else if (passwordCharCount < 6)
+            {
+                await App.Current.MainPage.DisplayAlert("Failure", "Please make sure your Password is at least 6 characters", "OK");
+            }
+            else
+            {
+                // authenticate
+                bool result = await Auth.LoginUser(EmailEntry.Text, PasswordEntry.Text);
+
+                if (result)
+                    await Navigation.PushAsync(new HomePage());
+            }
+        }
+
+            private void RegisterUserButton_OnClicked(object sender, EventArgs e)
+            {
+
+
+                Navigation.PushAsync(new RegisterPage());
+            }
         }
     }
-}
+

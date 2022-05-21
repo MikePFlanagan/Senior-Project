@@ -66,7 +66,6 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     new NSString(lesson.StartTime.ToString()),
                     new NSString(lesson.EndTime.ToString()),
                     new NSString(lesson.Amount),
-                    new NSString(lesson.UserId),
                     new NSString(Firebase.Auth.Auth.DefaultInstance.CurrentUser.Uid)
                 };
 
@@ -120,11 +119,11 @@ namespace MusicAcademyCRM.iOS.Dependencies
                     StudentName = dictionary.ValueForKey(new NSString("studentname")) as NSString,
                     TeacherName = dictionary.ValueForKey(new NSString("teachername")) as NSString,
                     Instrument = dictionary.ValueForKey(new NSString("instrument")) as NSString,
-                    //StartDate = (DateTime)(dictionary.ValueForKey(new NSString("startdate")) as NSDate),                   
-                    //EndDate = (DateTime)(dictionary.ValueForKey(new NSString("enddate"))as NSDate),
-                    StartDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("startdate")) as NSDate),
-                    EndDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("enddate")) as NSDate),
-                    
+                    StartDate = DateTime.Parse(dictionary.ValueForKey(new NSString("startdate")) as NSString),
+                    EndDate = DateTime.Parse(dictionary.ValueForKey(new NSString("enddate")) as NSString),
+                    //StartDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("startdate")) as NSDate),
+                    //EndDate = NSDateToDateTime(dictionary.ValueForKey(new NSString("enddate")) as NSDate),
+
                     Amount = dictionary.ValueForKey(new NSString("amount")) as NSString,
                     UserId = dictionary.ValueForKey(new NSString("userId")) as NSString,
                     Id = doc.Id

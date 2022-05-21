@@ -24,8 +24,8 @@
                    Margin="1,-6"
                    Keyboard="Default"
                    Placeholder="Students Name"
-                   
-                        PlaceholderColor="{StaticResource textColor}"
+                     BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
                         TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Teacher Name:"
@@ -34,8 +34,9 @@
                    Margin="1,-6"
                    Keyboard="Default"
                    Placeholder="Teachers Name" 
-                   PlaceholderColor="{StaticResource placeholderColor}"
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
+                        TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Instrument:"
                        TextColor="{StaticResource labelColor}"/>
@@ -43,18 +44,17 @@
                    Margin="1,-6"
                    Keyboard="Default"
                    Placeholder="Student's instrument"
-                   
-                        PlaceholderColor="{StaticResource textColor}"
+                     BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
                         TextColor="{StaticResource textColor}"/>
-
                 <Label Text="Amount:"
                    TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="amountEntry"                       
                    Margin="1,-6"
                    Keyboard="Default" 
                    Placeholder="$30.00"
-                   
-                        PlaceholderColor="{StaticResource textColor}"
+                     BackgroundColor="{StaticResource backgroundColor}"
+                        PlaceholderColor="{StaticResource placeholderColor}"
                         TextColor="{StaticResource textColor}"/>
 
                  <Label Text="Lesson Date:"
@@ -62,23 +62,28 @@
                 <DatePicker x:Name="startDatePicker"
                     Date="{Binding StartDate, Mode=OneWayToSource}" 
                              
-                  
-                   TextColor="{StaticResource textColor}"
+                   BackgroundColor="{StaticResource backgroundColor}"
+                    
+                    TextColor="{StaticResource textColor}"
                             MinimumDate="{x:Static sys:DateTime.Now}"
                             MaximumDate="2050/01/01"/>
 
                 <Label Text="Select the Lesson Start Time"
-                    TextColor="{StaticResource labelColor}"/>
+                    TextColor="{StaticResource labelColor}"
+                         BackgroundColor="{StaticResource backgroundColor}"
+                        />
                 <TimePicker x:Name="startTimePicker"
-                                       
-                        TextColor="{StaticResource textColor}"                 
+                       BackgroundColor="{StaticResource backgroundColor}"
+                    
+                    TextColor="{StaticResource textColor}"                
                     Format = "h:mm tt"
                     Time="{Binding StartTime, Mode=OneWayToSource}" />
 
                 <Label Text="Select the Lesson End Time"
-                   TextColor="{StaticResource labelColor}"/>
+                       TextColor="{StaticResource labelColor}"/>
                 <TimePicker x:Name="endTimePicker"
-                   
+                   BackgroundColor="{StaticResource backgroundColor}"
+                    
                     TextColor="{StaticResource textColor}"
                     Format = "h:mm tt"
                     Time="{Binding EndTime, Mode=OneWayToSource}"

@@ -14,8 +14,9 @@
                 <Entry x:Name="nameEntry"
                   
                    Keyboard="Default"                 
-                    
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Phone:"
                     TextColor="{StaticResource labelColor}"/>
@@ -23,7 +24,9 @@
                   
                    Margin="1,-6"
                    Keyboard="Telephone"                  
-                   TextColor="{StaticResource textColor}"/>
+                   BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Email:"
                     TextColor="{StaticResource labelColor}"/>
@@ -31,7 +34,9 @@
                   
                    Margin="1,-6"
                    Keyboard="Email"              
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Address:"
                     TextColor="{StaticResource labelColor}"/>
@@ -39,7 +44,9 @@
                  
                    Margin="1,-6"
                    Keyboard="Default"                
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="City:"
                     TextColor="{StaticResource labelColor}"/>
@@ -47,8 +54,9 @@
                 
                    Margin="1,-6"
                    Keyboard="Default"
-                   PlaceholderColor="{StaticResource textColor}"
-                   TextColor="{StaticResource textColor}"/>
+                   BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="State:"
                     TextColor="{StaticResource labelColor}"/>
@@ -56,26 +64,34 @@
                 
                    Margin="1,-6"
                    Keyboard="Default"              
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Zip:"
                     TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="zipcodeEntry"                 
                    Margin="-1"
                    Keyboard="Default"                 
-                   TextColor="{StaticResource textColor}"/>
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
 
                 <Label Text="Availability:"
                     TextColor="{StaticResource labelColor}"/>                    
                 <Entry x:Name="availabilityEntry"                                  
                    Keyboard="Default"                 
-                   TextColor="{StaticResource textColor}"/>
+                  BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
+                    TextColor="{StaticResource textColor}"/>
                     
 
                 <Label Text="Instruments:"
                     TextColor="{StaticResource labelColor}"/>
                 <Entry x:Name="instrumentsEntry"                                    
                     Keyboard="Default"                 
+                    BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
                     TextColor="{StaticResource textColor}"/>
                     
 
@@ -83,6 +99,8 @@
                     TextColor="{StaticResource labelColor}"/>
                 <Entry  x:Name="notesEntry"                
                     Keyboard="Default"                 
+                     BackgroundColor="{StaticResource backgroundColor}"
+                    PlaceholderColor="{StaticResource placeholderColor}"
                     TextColor="{StaticResource textColor}"/>
 
 

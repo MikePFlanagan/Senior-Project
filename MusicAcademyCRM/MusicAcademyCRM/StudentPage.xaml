@@ -7,8 +7,7 @@
              x:Class="MusicAcademyCRM.Students"
              BackgroundColor="Maroon">
 
-    <StackLayout VerticalOptions="Center"
-                 Margin="20">
+    <StackLayout VerticalOptions="Center">
         <ListView x:Name="studentListView"
               BackgroundColor="{StaticResource canvasbackgroundColor}"
               ItemSelected="StudentListView_OnItemSelected">

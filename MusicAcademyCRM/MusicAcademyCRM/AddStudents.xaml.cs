@@ -31,8 +31,8 @@ namespace MusicAcademyCRM
                 !string.IsNullOrWhiteSpace(cityEntry.Text) &&
                 !string.IsNullOrWhiteSpace(stateEntry.Text) &&
                 !string.IsNullOrWhiteSpace(zipcodeEntry.Text) &&
-                !string.IsNullOrWhiteSpace(instrumentsEntry.Text) &&
-                !string.IsNullOrWhiteSpace(leadsourceEntry.Text))
+                !string.IsNullOrWhiteSpace(instrumentsEntry.Text))
+                //!string.IsNullOrWhiteSpace(leadsourceEntry.Text))
                 //&& !string.IsNullOrWhiteSpace(notesEntry.Text)))
                 try
                 {
